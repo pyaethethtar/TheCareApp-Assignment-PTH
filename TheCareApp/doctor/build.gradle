@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.example.thecarefordoctor"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(":shared")
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation rootProject.ext.libraries.kotlin
+    implementation rootProject.ext.libraries.core
+    implementation rootProject.ext.libraries.appcompat
+    implementation rootProject.ext.libraries.constraintLayout
+    implementation rootProject.ext.libraries.material
+    implementation rootProject.ext.libraries.glide
+    implementation rootProject.ext.libraries.recyclerview
+    implementation rootProject.ext.libraries.lifecycleExtension
+    kapt rootProject.ext.libraries.lifecycleCompiler
+    implementation rootProject.ext.libraries.mmTextView
+
+
+    implementation rootProject.ext.libraries.facebookLogin
+
+    testImplementation rootProject.ext.libraries.junit
+    androidTestImplementation rootProject.ext.libraries.androidJunit
+    androidTestImplementation rootProject.ext.libraries.espresso
+
+}

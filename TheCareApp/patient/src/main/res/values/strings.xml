@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TheCareApp</string>
+    <string name="tv_special_question">၁), သွားနှင့်ခံတွင်းဆိုင်ရာ ရောဂါများကို မကြာခဏ စစ်ဆေးလေ့ရှိပါသလား ?</string>
+    <string name="lbl_yes">ရှိပါသည်</string>
+    <string name="lbl_no">မရှိပါ</string>
+    <string name="lbl_patient_info">လူနာအချက်အလက်များ</string>
+    <string name="lbl_patient_app">PATIENT APP</string>
+
+
+</resources>

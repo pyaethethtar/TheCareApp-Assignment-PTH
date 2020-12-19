@@ -1,0 +1,51 @@
+ext{
+    coreKtxVersion = "1.3.1"
+    appCompatVersion = "1.2.0"
+    constraintLayoutVersion = "2.0.1"
+    materialVersion = "1.2.0-alpha06"
+    recyclerVersion = "1.1.0"
+    lifecycleVersion = "2.2.0"
+    roomVersion = "2.2.3"
+    glideVersion = "4.11.0"
+    junitVersion = "4.12"
+    androidJunitVersion = "1.1.1"
+    espressoVersion = "3.2.0"
+    firebaseBomVersion = "26.1.0"
+    mmTextViewVersion = "1.5"
+    facebookLoginVersion = "8.1.0"
+    playServiceAuthVersion = "17.0.0"
+    playServiceAuthApiPhoneVersion = "17.4.0"
+
+
+
+
+    libraries = [
+            kotlin : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            core : "androidx.core:core-ktx:$coreKtxVersion",
+            appcompat : "androidx.appcompat:appcompat:$appCompatVersion",
+            constraintLayout : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            material : "com.google.android.material:material:$materialVersion",
+            recyclerview : "androidx.recyclerview:recyclerview:$recyclerVersion",
+            annotationProcessor : "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion",
+            liveData : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
+            lifecycleExtension : "android.arch.lifecycle:extensions:$lifecycleVersion",
+            lifecycleCompiler : "android.arch.lifecycle:compiler:$lifecycleVersion",
+            roomRuntime : "androidx.room:room-runtime:$roomVersion",
+            roomCompiler : "androidx.room:room-compiler:$roomVersion",
+            glide : "com.github.bumptech.glide:glide:$glideVersion",
+            junit : "junit:junit:$junitVersion",
+            androidJunit : "androidx.test.ext:junit:$androidJunitVersion",
+            espresso : "androidx.test.espresso:espresso-core:$espressoVersion",
+            firebaseBom : "com.google.firebase:firebase-bom:$firebaseBomVersion",
+            firebaseAnalytics : "com.google.firebase:firebase-analytics",
+            firestore : "com.google.firebase:firebase-firestore-ktx",
+            firebaseStorage : "com.google.firebase:firebase-storage-ktx",
+            firebaseAuth : "com.google.firebase:firebase-auth-ktx",
+            mmTextView : "org.mmtextview:mmtextview:$mmTextViewVersion",
+            facebookLogin : "com.facebook.android:facebook-login:$facebookLoginVersion",
+            playServiceAuth : "com.google.android.gms:play-services-auth:$playServiceAuthVersion",
+            playServiceAuthApiPhone : "com.google.android.gms:play-services-auth-api-phone:$playServiceAuthApiPhoneVersion"
+
+    ]
+
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrayTransparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_corner_white"
+        android:layout_margin="@dimen/margin_medium_2">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/height_cardview_recent_doctor"
+            android:layout_height="@dimen/height_cardview_recent_doctor"
+            android:src="@drawable/patient_case_saummary_confirmation"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_medium_3"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/lblConfirmInfoTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_title_confirm_info"
+            android:textAlignment="center"
+            style="@style/text_title"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/lblPatientInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_patient_info"
+            style="@style/text_bg.blue"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_medium_3"/>
+
+        <include
+            layout="@layout/viewpod_patient_info"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/lblSpecialQuestions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_title_special_questions"
+            style="@style/text_bg.blue"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_medium_1"/>
+
+        <include
+            layout="@layout/viewpod_special_case_summary"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnMakeConsultation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_make_consultation"
+            style="@style/text_bg.blue.button"
+            android:layout_margin="@dimen/margin_large"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+
+
+
+</FrameLayout>

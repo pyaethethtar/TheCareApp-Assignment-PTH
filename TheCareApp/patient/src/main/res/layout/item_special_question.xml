@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/tvSpecialQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_special_question"
+        style="@style/text_regular"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_medium"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etSpecialAnswer"
+        style="@style/text_regular"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/rounded_corner_white"
+        android:padding="@dimen/margin_medium"
+        android:layout_below="@id/tvSpecialQuestion"
+        android:layout_marginTop="@dimen/margin_medium"/>
+
+<!--    <org.mmtextview.components.MMRadioButton-->
+<!--        android:id="@+id/rbYes"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/lbl_yes"-->
+<!--        style="@style/text_regular"-->
+<!--        android:padding="@dimen/margin_medium"-->
+<!--        android:layout_below="@id/tvSpecialQuestion"-->
+<!--        android:layout_marginTop="@dimen/margin_medium"/>-->
+
+<!--    <org.mmtextview.components.MMRadioButton-->
+<!--        android:id="@+id/rbNo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/lbl_no"-->
+<!--        style="@style/text_regular"-->
+<!--        android:padding="@dimen/margin_medium"-->
+<!--        android:layout_below="@id/tvSpecialQuestion"-->
+<!--        android:layout_marginTop="@dimen/margin_medium"-->
+<!--        android:layout_toEndOf="@id/rbYes"-->
+<!--        android:layout_marginStart="@dimen/margin_xlarge"/>-->
+
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorGray"
+        android:layout_below="@id/etSpecialAnswer"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "131355274328",
+    "firebase_url": "https://thecareapp-pth.firebaseio.com",
+    "project_id": "thecareapp-pth",
+    "storage_bucket": "thecareapp-pth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131355274328:android:930b9439045c65b7522e2d",
+        "android_client_info": {
+          "package_name": "com.example.shared"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131355274328-lduadrrbtcttqplndc3qfdb5krofjomc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP0ZqYukU670tKsYGsD6Xm2n5xf4NqrOc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "131355274328-lduadrrbtcttqplndc3qfdb5krofjomc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.RegisterActivity"
+    android:background="@color/colorWhite">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/group_909"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-330dp"
+        android:layout_marginEnd="-204dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lblTheCareMM"
+        style="@style/app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginTop="76dp"
+        android:text="@string/lbl_the_caremm" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lblDoctorApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_doctor_app"
+        android:textSize="@dimen/text_regular_2x_2"
+        android:textColor="@color/primaryDarkColor"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_regular"
+        android:shadowColor="@color/color_shadow"
+        android:shadowDy="3"
+        android:shadowRadius="1"
+        android:letterSpacing="-0.02"
+        android:layout_below="@id/lblTheCareMM"
+        android:layout_alignStart="@id/lblTheCareMM"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivDoctorProfile"
+        android:layout_width="@dimen/size_profile_patient"
+        android:layout_height="@dimen/size_profile_patient"
+        android:src="@drawable/photo_1438761681033_6461_ffad_8_d_80"
+        android:scaleType="centerCrop"
+        android:layout_below="@id/lblDoctorApp"
+        android:layout_alignStart="@id/lblTheCareMM"
+        android:layout_marginTop="@dimen/margin_xlarge"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tin Maung Nyo"
+        android:textSize="@dimen/text_regular_3x"
+        style="@style/input_text"
+        android:layout_below="@id/ivDoctorProfile"
+        android:layout_marginTop="@dimen/margin_medium_3"
+        android:layout_alignStart="@id/lblTheCareMM"/>
+
+
+    <FrameLayout
+        android:id="@+id/flContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_marginTop="@dimen/margin_medium_3"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:layout_marginEnd="@dimen/margin_medium_3"
+        android:layout_marginBottom="@dimen/margin_xxlarge">
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/group_910"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/margin_xxlarge"
+        android:layout_marginStart="-152dp"
+        android:layout_marginBottom="-154dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lblAlreadyAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_already_have_an_account"
+        android:textSize="@dimen/text_regular"
+        android:textColor="@color/textcolorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_toStartOf="@id/btnLogin"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_login"
+        android:textSize="@dimen/text_regular"
+        android:textColor="@color/facebook_button"
+        android:textStyle="bold"
+        android:layout_alignTop="@id/lblAlreadyAccount"
+        android:layout_alignEnd="@id/flContainer"/>
+
+
+</RelativeLayout>

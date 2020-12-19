@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/margin_medium_2"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_medium_3">
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblPatientName"
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_patient_name"
+                style="@style/text_regular.blue"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_full_column"
+                style="@style/text_regular.blue"
+                android:textAlignment="center"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPatientName"
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="wrap_content"
+                android:text="Aung Aung"
+                style="@style/text_regular.blue"
+                android:layout_alignParentEnd="true"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblDob"
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_dob"
+                style="@style/text_regular.blue"
+                android:layout_below="@id/lblPatientName"
+                android:layout_marginTop="@dimen/margin_medium"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_full_column"
+                style="@style/text_regular.blue"
+                android:textAlignment="center"
+                android:layout_alignTop="@id/lblDob"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDob"
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="wrap_content"
+                android:text="23 Nov 2000"
+                style="@style/text_regular.blue"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/lblDob"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblHeight"
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_height"
+                style="@style/text_regular.blue"
+                android:layout_below="@id/lblDob"
+                android:layout_marginTop="@dimen/margin_medium"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_full_column"
+                style="@style/text_regular.blue"
+                android:textAlignment="center"
+                android:layout_alignTop="@id/lblHeight"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHeight"
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="wrap_content"
+                android:text="5.8 ft"
+                style="@style/text_regular.blue"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/lblHeight"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblBloodType"
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_blood_type"
+                style="@style/text_regular.blue"
+                android:layout_below="@id/lblHeight"
+                android:layout_marginTop="@dimen/margin_medium"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_full_column"
+                style="@style/text_regular.blue"
+                android:textAlignment="center"
+                android:layout_alignTop="@id/lblBloodType"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBloodType"
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="wrap_content"
+                android:text="A"
+                style="@style/text_regular.blue"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/lblBloodType"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblAllergicMedicine"
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_allergic_medicine"
+                style="@style/text_regular.blue"
+                android:layout_below="@id/lblBloodType"
+                android:layout_marginTop="@dimen/margin_medium"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_full_column"
+                style="@style/text_regular.blue"
+                android:textAlignment="center"
+                android:layout_alignTop="@id/lblAllergicMedicine"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAllergicMedicine"
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="wrap_content"
+                android:text="Paracetamol"
+                style="@style/text_regular.blue"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/lblAllergicMedicine"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/lblWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_weight"
+        style="@style/text_small.blue"
+        android:layout_marginTop="@dimen/margin_medium_2"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium_1"
+        app:cardCornerRadius="@dimen/margin_medium_2"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_weight_unit"
+                style="@style/text_regular.blue"
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/margin_medium_2"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etWeight"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_xxlarge"
+                style="@style/text_regular.blue"
+                android:background="@drawable/rounded_corner_white"
+                android:layout_toStartOf="@id/tvLb"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <org.mmtextview.components.MMTextView
+        android:id="@+id/lblBloodPressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_blood_pressure"
+        style="@style/text_small.blue"
+        android:layout_marginTop="@dimen/margin_medium_1"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvBloodPressure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:cardCornerRadius="@dimen/margin_medium_2"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvMmHg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_bloodpressure_unit"
+                style="@style/text_regular.blue"
+                android:textStyle="bold"
+                android:layout_alignParentEnd="true"
+                android:padding="@dimen/margin_medium_2"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etBloodPressure"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_xxlarge"
+                style="@style/text_regular.blue"
+                android:background="@drawable/rounded_corner_white"
+                android:layout_toStartOf="@id/tvMmHg"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_continue"
+        style="@style/text_bg.blue.button"
+        android:drawableEnd="@drawable/ic_forward_arrow_white_24"
+        android:drawablePadding="@dimen/margin_medium"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/margin_medium_3"
+        android:layout_marginTop="@dimen/margin_xxlarge"/>
+
+
+</LinearLayout>

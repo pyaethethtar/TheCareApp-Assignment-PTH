@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.thecareapp.view.viewpods.ConsultationResponseViewpod
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/margin_medium_2">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:padding="@dimen/margin_medium_2">
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/lblConsultationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_title_consultation"
+            style="@style/text_title.blue"
+            android:drawableStart="@drawable/ic_info_blue_24"
+            android:drawablePadding="@dimen/margin_medium"
+            android:padding="@dimen/margin_medium_1"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvResponseDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_consultation_response_description"
+            style="@style/text_regular"
+            android:layout_below="@id/lblConsultationTitle"
+            android:layout_marginTop="@dimen/margin_medium"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDoctor"
+            android:layout_width="@dimen/height_bottom_navi_bar"
+            android:layout_height="@dimen/height_bottom_navi_bar"
+            android:src="@drawable/img_doctor"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_below="@id/tvResponseDescription"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvDoctorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_doctor_name"
+            style="@style/text_regular"
+            android:textStyle="bold"
+            android:layout_alignTop="@id/ivDoctor"
+            android:layout_toEndOf="@id/ivDoctor"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginTop="@dimen/margin_medium"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvDoctorSpeciality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_speciality"
+            style="@style/text_regular"
+            android:layout_below="@id/tvDoctorName"
+            android:layout_alignStart="@id/tvDoctorName"
+            android:layout_marginTop="@dimen/margin_medium"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvDoctorBrief"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_doctor_brief"
+            style="@style/text_small"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_below="@id/ivDoctor"
+            android:layout_marginTop="@dimen/margin_medium_2"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/btnStartConsultation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_start_consultation"
+            style="@style/text_title.blue"
+            android:layout_below="@id/tvDoctorBrief"
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/margin_small" />
+
+    </RelativeLayout>
+
+
+
+</com.example.thecareapp.view.viewpods.ConsultationResponseViewpod>

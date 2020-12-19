@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/width_cardview_recent_doctor"
+    android:layout_height="@dimen/height_cardview_recent_doctor"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    app:cardCornerRadius="@dimen/margin_medium_3"
+    android:layout_marginStart="@dimen/margin_medium">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_medium">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRecentDoctor"
+            android:layout_width="@dimen/margin_xxlarge"
+            android:layout_height="@dimen/margin_xxlarge"
+            android:src="@drawable/img_doctor"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_gravity="center_horizontal"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvRecentDoctorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_doctor_name"
+            android:textSize="@dimen/text_regular"
+            android:textColor="@color/textcolorPrimary"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_medium_3"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvRecentDoctorSpeciality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_speciality"
+            android:textSize="@dimen/text_regular"
+            android:textColor="@color/textcolorPrimary"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:lineSpacingMultiplier="1.3"/>
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

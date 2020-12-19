@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/margin_medium_2"
+    android:layout_marginBottom="@dimen/margin_medium_1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/lblConsultationRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_title_consultation_request"
+            style="@style/text_title"
+            android:layout_margin="@dimen/margin_medium_2"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/lblOldPatient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_old_patient"
+            style="@style/text_bg.yellow"
+            android:layout_margin="@dimen/margin_medium_2"
+            android:layout_alignParentEnd="true"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGray"
+            android:layout_below="@id/lblConsultationRequest"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPatient"
+            android:layout_width="@dimen/height_bottom_navi_bar"
+            android:layout_height="@dimen/height_bottom_navi_bar"
+            android:src="@drawable/img_doctor"
+            android:scaleType="centerCrop"
+            android:layout_below="@id/view"
+            android:layout_alignStart="@id/lblConsultationRequest"
+            android:layout_marginTop="@dimen/margin_medium_2"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvPatientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_patient_name"
+            android:textSize="@dimen/text_regular_2x"
+            android:textStyle="bold"
+            android:textColor="@color/textcolorSecondary"
+            android:layout_toEndOf="@id/ivPatient"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_alignTop="@id/ivPatient"
+            android:paddingTop="@dimen/margin_medium"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvPatientDob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="မွေးနေ့ : 23 Nov 1997"
+            style="@style/text_regular.blue"
+            android:layout_alignStart="@id/tvPatientName"
+            android:layout_below="@id/tvPatientName"
+            android:layout_marginTop="@dimen/margin_small"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginTop="@dimen/margin_medium_3"
+            android:layout_marginBottom="@dimen/margin_medium_3"
+            android:layout_alignStart="@id/lblConsultationRequest"
+            android:layout_alignEnd="@id/lblOldPatient"
+            android:layout_below="@id/ivPatient">
+
+            <org.mmtextview.components.MMButton
+                android:id="@+id/btnCallLater"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_call_later"
+                style="@style/btn_consultation_response.lightblue"
+                android:layout_weight="1"
+                android:layout_marginEnd="@dimen/margin_medium"/>
+
+            <org.mmtextview.components.MMButton
+                android:id="@+id/btnPostpone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_postpone"
+                style="@style/btn_consultation_response.orange"
+                android:layout_weight="1"/>
+
+            <org.mmtextview.components.MMButton
+                android:id="@+id/btnAccept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_accept"
+                style="@style/btn_consultation_response.blue"
+                android:textStyle="normal"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/margin_medium"/>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

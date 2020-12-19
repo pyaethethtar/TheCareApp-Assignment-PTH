@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DoctorInfoActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/margin_medium_2"
+            android:paddingEnd="@dimen/margin_medium_2"
+            android:paddingTop="@dimen/margin_medium_3"
+            android:paddingBottom="@dimen/margin_large"
+            android:background="@color/colorWhite">
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_name"
+                style="@style/lbl_input_text"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text"
+                style="@style/input_text"
+                android:paddingStart="@dimen/margin_medium_1"
+                android:inputType="textPersonName"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small_1"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblDob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_dob"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium_1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/margin_small_1"
+                android:weightSum="3">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/input_text"
+                    android:textAlignment="center"
+                    android:background="@drawable/rounded_corner_text_input"
+                    android:padding="@dimen/margin_medium_1"
+                    android:layout_marginEnd="@dimen/margin_medium_2"
+                    android:layout_weight="1"
+                    android:entries="@array/days_list"
+                    android:spinnerMode="dropdown"/>
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/input_text"
+                    android:background="@drawable/rounded_corner_text_input"
+                    android:padding="@dimen/margin_medium_1"
+                    android:layout_weight="1"
+                    android:entries="@array/months_list"
+                    android:textAlignment="center"
+                    android:spinnerMode="dropdown"/>
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/input_text"
+                    android:textAlignment="center"
+                    android:background="@drawable/rounded_corner_text_input"
+                    android:padding="@dimen/margin_medium_1"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margin_medium_2"
+                    android:entries="@array/years_list"
+                    android:spinnerMode="dropdown"/>
+            </LinearLayout>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_phone"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium_1"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text"
+                style="@style/input_text"
+                android:paddingStart="@dimen/margin_medium_1"
+                android:inputType="phone"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small_1" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_gender"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium_1"/>
+
+            <RadioGroup
+                android:id="@+id/rdGender"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_button"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/margin_small_1">
+
+                <org.mmtextview.components.MMRadioButton
+                    android:id="@+id/rbMale"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/lbl_man"
+                    style="@style/text_regular"
+                    android:padding="@dimen/margin_medium"
+                    android:layout_weight="1"/>
+
+                <org.mmtextview.components.MMRadioButton
+                    android:id="@+id/rbFemale"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/lbl_woman"
+                    style="@style/text_regular"
+                    android:padding="@dimen/margin_medium"
+                    android:layout_weight="1"/>
+            </RadioGroup>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblSpeciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_speciality"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium_1"/>
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerSpeciality"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_button"
+                style="@style/input_text"
+                android:background="@drawable/rounded_corner_text_input"
+                android:padding="@dimen/margin_medium_1"
+                android:layout_marginTop="@dimen/margin_small_1"
+                android:entries="@array/speciality_list"
+                android:spinnerMode="dropdown"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_experience"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium_1"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etExperience"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text"
+                style="@style/input_text"
+                android:paddingStart="@dimen/margin_medium_1"
+                android:inputType="number"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small_1"
+                />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblCertificates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_certificates"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium_1"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etCertificates"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text_2x"
+                style="@style/input_text"
+                android:padding="@dimen/margin_medium_1"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small_1"
+                />
+
+            <org.mmtextview.components.MMTextView
+            android:id="@+id/lblBrief"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_brief"
+            style="@style/lbl_input_text"
+            android:layout_marginTop="@dimen/margin_medium_1"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etBrief"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text_2x"
+                style="@style/input_text"
+                android:padding="@dimen/margin_medium_1"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small_1"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_address"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium_1"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text_2x"
+                style="@style/input_text"
+                android:padding="@dimen/margin_medium_1"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small_1"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCreateAccount"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_button"
+                android:text="@string/btn_create_account"
+                style="@style/button_text_regular"
+                android:background="@drawable/rounded_corner_blue"
+                android:layout_marginTop="@dimen/margin_large"/>
+
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblEnterPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_enter_phone_number"
+            style="@style/lbl_input_text"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_edit_text"
+            style="@style/input_text"
+            android:paddingStart="@dimen/margin_medium_1"
+            android:inputType="phone"
+            android:background="@drawable/rounded_corner_text_input"
+            android:layout_below="@id/lblEnterPhone"
+            android:layout_marginTop="@dimen/margin_medium_1"
+            android:elevation="@dimen/margin_small" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblEnterOTP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_enter_otp_code"
+            style="@style/lbl_input_text"
+            android:layout_below="@id/etPhoneNumber"
+            android:layout_marginTop="@dimen/margin_medium_1"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etOtpCode"
+            android:layout_width="@dimen/size_otp_edittext"
+            android:layout_height="@dimen/height_edit_text"
+            style="@style/input_text"
+            android:paddingStart="@dimen/margin_medium_1"
+            android:inputType="number"
+            android:background="@drawable/rounded_corner_text_input"
+            android:layout_below="@id/lblEnterOTP"
+            android:layout_marginTop="@dimen/margin_medium_1"
+            android:layout_marginEnd="@dimen/margin_medium_1"
+            android:elevation="@dimen/margin_small" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnGetOtp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_button"
+            android:text="@string/btn_get_otp"
+            style="@style/button_text_regular"
+            android:background="@drawable/rounded_corner_blue"
+            android:layout_alignTop="@id/etOtpCode"
+            android:layout_toEndOf="@id/etOtpCode"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnNext"
+            style="@style/button_text_regular"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_edit_text"
+            android:layout_below="@id/etOtpCode"
+            android:layout_marginTop="@dimen/margin_xlarge_1"
+            android:background="@drawable/rounded_corner_blue"
+            android:text="@string/btn_next"/>
+    </RelativeLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>
