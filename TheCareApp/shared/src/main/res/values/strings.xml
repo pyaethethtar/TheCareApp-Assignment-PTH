@@ -38,6 +38,9 @@
     <string name="tv_title_confirm_info">အချက်အလက်များအား အတည်ပြုပေးပါ </string>
     <string name="lbl_title_consultation">ဆွေးနွေးမှု ပြုလုပ်နိုင်ပါပြီ </string>
 
+    <string name="tv_special_question">၁), သွားနှင့်ခံတွင်းဆိုင်ရာ ရောဂါများကို မကြာခဏ စစ်ဆေးလေ့ရှိပါသလား ?</string>
+    <string name="lbl_yes">ရှိပါသည်</string>
+    <string name="lbl_no">မရှိပါ </string>
     <string name="tv_confirm_consultation_message"> ဆရာ၀န်နှင့် တိုင်ပင်ဆွေးနွေးရန် Consultation Request ပြုလုပ်မှာ သေချာပါသလား ?</string>
     <string name="btn_make_consultation">ချိန်းဆိုမှု ပြုလုပ်မည်</string>
     <string name="lbl_consultation_response_description">ဆွေးနွေးမှုပြုလုပ်ရန် <b>ပါမောက္ခဦးအောင်ဝင်း</b>မှ လက်ခံထားပါသည်။ </string>

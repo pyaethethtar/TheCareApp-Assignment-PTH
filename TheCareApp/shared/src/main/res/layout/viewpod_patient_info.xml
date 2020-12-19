@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.shared.viewpods.PatientInfoViewpod
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/margin_medium_3">
@@ -15,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="@string/lbl_full_column"
         style="@style/text_regular.blue"
-        android:textAlignment="center"/>
+        android:gravity="center_horizontal"/>
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvPatientName"
         android:layout_width="@dimen/width_cardview_recent_doctor"
@@ -37,7 +38,7 @@
         android:layout_height="wrap_content"
         android:text="@string/lbl_full_column"
         style="@style/text_regular.blue"
-        android:textAlignment="center"
+        android:gravity="center_horizontal"
         android:layout_alignTop="@id/lblDob"/>
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvDob"
@@ -61,10 +62,10 @@
         android:layout_height="wrap_content"
         android:text="@string/lbl_full_column"
         style="@style/text_regular.blue"
-        android:textAlignment="center"
+        android:gravity="center_horizontal"
         android:layout_alignTop="@id/lblHeight"/>
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/lblHeight"
+        android:id="@+id/tvHeight"
         android:layout_width="@dimen/width_cardview_recent_doctor"
         android:layout_height="wrap_content"
         android:text="5.8 ft"
@@ -85,10 +86,10 @@
         android:layout_height="wrap_content"
         android:text="@string/lbl_full_column"
         style="@style/text_regular.blue"
-        android:textAlignment="center"
+        android:gravity="center_horizontal"
         android:layout_alignTop="@id/lblBloodType"/>
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/lblBloodType"
+        android:id="@+id/tvBloodType"
         android:layout_width="@dimen/width_cardview_recent_doctor"
         android:layout_height="wrap_content"
         android:text="A"
@@ -109,10 +110,10 @@
         android:layout_height="wrap_content"
         android:text="@string/lbl_full_column"
         style="@style/text_regular.blue"
-        android:textAlignment="center"
+        android:gravity="center_horizontal"
         android:layout_alignTop="@id/lblWeight"/>
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/lblWeight"
+        android:id="@+id/tvWeight"
         android:layout_width="@dimen/width_cardview_recent_doctor"
         android:layout_height="wrap_content"
         android:text="165 lb"
@@ -133,10 +134,10 @@
         android:layout_height="wrap_content"
         android:text="@string/lbl_full_column"
         style="@style/text_regular.blue"
-        android:textAlignment="center"
+        android:gravity="center_horizontal"
         android:layout_alignTop="@id/lblBloodPressure"/>
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/lblBloodPressure"
+        android:id="@+id/tvBloodPressure"
         android:layout_width="@dimen/width_cardview_recent_doctor"
         android:layout_height="wrap_content"
         android:text="90/50 mmHg"
@@ -157,10 +158,10 @@
         android:layout_height="wrap_content"
         android:text="@string/lbl_full_column"
         style="@style/text_regular.blue"
-        android:textAlignment="center"
+        android:gravity="center_horizontal"
         android:layout_alignTop="@id/lblAllergicMedicine"/>
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/lblAllergicMedicine"
+        android:id="@+id/tvAllergicMedicine"
         android:layout_width="@dimen/width_cardview_recent_doctor"
         android:layout_height="wrap_content"
         android:text="Paracetamol"
@@ -169,4 +170,4 @@
         android:layout_alignTop="@id/lblAllergicMedicine"/>
 
 
-</RelativeLayout>
+</com.example.shared.viewpods.PatientInfoViewpod>

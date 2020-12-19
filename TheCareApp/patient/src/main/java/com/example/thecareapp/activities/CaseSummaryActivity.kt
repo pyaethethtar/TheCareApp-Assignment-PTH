@@ -2,24 +2,17 @@ package com.example.thecareapp.activities
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.shared.BaseActivity
-import com.example.shared.data.vos.ConsultationRequestVO
 import com.example.shared.data.vos.PatientVO
-import com.example.shared.data.vos.SpecialQuestionVO
 import com.example.thecareapp.R
-import com.example.thecareapp.dialogs.PatientInfoConfirmDialog
 import com.example.thecareapp.fragments.GeneralQuestionsFragment
 import com.example.thecareapp.fragments.GeneralQuestionsNewFragment
-import com.example.thecareapp.fragments.SpecialQuestionsFragment
 import com.example.thecareapp.mvp.presenters.CaseSummaryPresenter
 import com.example.thecareapp.mvp.presenters.impls.CaseSummaryPresenterImpl
 import com.example.thecareapp.mvp.views.CaseSummaryView
-import kotlinx.android.synthetic.main.activity_case_summary.*
-import kotlinx.android.synthetic.main.fragment_general_questions.*
 
 class CaseSummaryActivity : BaseActivity(), CaseSummaryView {
 
@@ -53,6 +46,10 @@ class CaseSummaryActivity : BaseActivity(), CaseSummaryView {
         mPresenter.initPresenter(this)
     }
 
+    override fun navigateToGeneralQuestionsNew() {
+        openFragment(GeneralQuestionsNewFragment.newInstance())
+    }
+
     override fun navigateToGeneralQuestions(patientVO: PatientVO) {
         var name = patientVO.patientName
         var dob = ""
@@ -72,25 +69,11 @@ class CaseSummaryActivity : BaseActivity(), CaseSummaryView {
         openFragment(GeneralQuestionsFragment.newInstance(name, dob, height, bloodType, medicine))
     }
 
-    override fun navigateToGeneralQuestionsNew() {
-        openFragment(GeneralQuestionsNewFragment.newInstance())
-    }
-
-    override fun navigateToSpecialQuestions(questions: ArrayList<SpecialQuestionVO>) {
-        val fragment = SpecialQuestionsFragment.newInstance()
-        openFragment(fragment)
-        fragment.displaySpecialQuestions(questions)
-    }
-
-    override fun navigateToMainScreen() {
-        startActivity(MainActivity.newIntent(mPatientId, this))
-    }
-
-    override fun displayPatientInfoConfirmatioinDialog(request: ConsultationRequestVO) {
-        PatientInfoConfirmDialog.newDialog().show(supportFragmentManager, PatientInfoConfirmDialog.PATIENT_INFO_CONFIRM_DIALOG)
-    }
-
     private fun openFragment(fragment : Fragment){
         supportFragmentManager.beginTransaction().replace(R.id.flQuestionsContainer, fragment).commit()
     }
+
+
+
+
 }

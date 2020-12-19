@@ -1,5 +1,6 @@
 package com.example.thecareapp.mvp.presenters
 
+import android.content.Context
 import androidx.lifecycle.LifecycleOwner
 import com.example.shared.data.vos.DoctorVO
 import com.example.shared.mvp.BasePresenter
@@ -12,5 +13,4 @@ interface HomePresenter : BasePresenter<HomeView>, SpecialityItemDelegate, Consu
 
     fun onUiReady(patientId: String, lifecycleOwner: LifecycleOwner)
     fun onObserveConsultationResponse(lifecycleOwner: LifecycleOwner)
-    fun onTapConfirm(speciality: String)
 }

@@ -1,6 +1,7 @@
 package com.example.thecareapp.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -103,7 +104,7 @@ class HomeFragment : BaseFragment(), HomeView {
 
     override fun displayConfimationDialog(speciality: String) {
         activity?.let {
-            ConsultationConfirmDialog.newDialog(speciality).show(it.supportFragmentManager, ConsultationConfirmDialog.CONSULTATION_CONFIRM_DIALOG)
+            ConsultationConfirmDialog.newDialog(speciality, mPatientId).show(it.supportFragmentManager, ConsultationConfirmDialog.CONSULTATION_CONFIRM_DIALOG)
         }
     }
 

@@ -8,6 +8,7 @@ import com.example.shared.network.FirebaseApi
 interface TheCareModel {
 
     var mFirebaseApi : FirebaseApi
+    var consultationRequestVO : ConsultationRequestVO
 
     fun getDataFromApiAndSaveToPatientDB(patientId: String, onSuccess:()->Unit, onFailure:(String)->Unit)
     fun getDataFromApiAndSaveToDoctorDB(doctorId: String, onSuccess: () -> Unit, onFailure: (String) -> Unit)

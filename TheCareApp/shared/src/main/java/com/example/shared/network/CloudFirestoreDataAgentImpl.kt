@@ -385,6 +385,7 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
                 caseSummary.question = cs.question
                 caseSummary.answer = cs.answer
                 documentRef.collection(GET_CASE_SUMMARY).document().set(caseSummary.toCaseSummaryMap())
+                Log.d("TheCareMM", cs.answer)
             }
             onSuccess()
         }.addOnFailureListener {

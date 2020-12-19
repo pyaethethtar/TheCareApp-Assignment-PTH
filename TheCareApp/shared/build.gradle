@@ -41,6 +41,7 @@ dependencies {
     kapt rootProject.ext.libraries.lifecycleCompiler
     implementation rootProject.ext.libraries.roomRuntime
     kapt rootProject.ext.libraries.roomCompiler
+    implementation rootProject.ext.libraries.mmTextView
 
     implementation platform(rootProject.ext.libraries.firebaseBom)
     implementation rootProject.ext.libraries.firebaseAnalytics

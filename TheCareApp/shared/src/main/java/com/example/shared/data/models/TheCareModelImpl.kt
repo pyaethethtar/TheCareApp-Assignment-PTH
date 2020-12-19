@@ -14,6 +14,8 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
 
     override var mFirebaseApi: FirebaseApi = CloudFirestoreDataAgentImpl
 
+    override var consultationRequestVO: ConsultationRequestVO = ConsultationRequestVO()
+
     override fun getDataFromApiAndSaveToPatientDB(
         patientId: String,
         onSuccess: () -> Unit,
@@ -329,7 +331,7 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
         speciality: String,
         onFailure: (String) -> Unit
     ): LiveData<SpecialityVO> {
-        return mTheDB.specialityDao().getSpecialityById(speciality)
+        return mTheDB.specialityDao().getSpeciality(speciality)
     }
 
     override fun getRecentlyConsultedDoctorIds(

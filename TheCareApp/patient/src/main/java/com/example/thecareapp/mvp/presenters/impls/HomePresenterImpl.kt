@@ -1,5 +1,6 @@
 package com.example.thecareapp.mvp.presenters.impls
 
+import android.content.Context
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.example.shared.data.models.AuthenticationModel
@@ -44,10 +45,6 @@ class HomePresenterImpl: HomePresenter, AbstractBasePresenter<HomeView>() {
 
     override fun onTapDoctor(doctorVO: DoctorVO) {
         mView?.displayConfimationDialog(doctorVO.speciality)
-    }
-
-    override fun onTapConfirm(speciality: String) {
-        mView?.navigateToCaseSummaryScreen(speciality)
     }
 
     override fun onTapStartConsultation(consultationId: String) {

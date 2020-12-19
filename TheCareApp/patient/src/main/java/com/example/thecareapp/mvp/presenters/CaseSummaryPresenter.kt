@@ -9,7 +9,4 @@ import com.example.thecareapp.mvp.views.CaseSummaryView
 interface CaseSummaryPresenter : BasePresenter<CaseSummaryView> {
 
     fun onUiReady(patientId: String, speciality: String, lifecycleOwner: LifecycleOwner)
-    fun onTapNext(generalCaseSummary: ArrayList<CaseSummaryVO>)
-    fun onTapContinue(specialCaseSummary: ArrayList<CaseSummaryVO>)
-    fun onTapCreateConsultationRequest()
 }

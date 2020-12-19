@@ -4,17 +4,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.shared.BaseFragment
 import com.example.shared.data.vos.CaseSummaryVO
+import com.example.shared.data.vos.ConsultationRequestVO
 import com.example.thecareapp.R
 import com.example.thecareapp.mvp.presenters.CaseSummaryPresenter
+import com.example.thecareapp.mvp.presenters.GeneralQuestionsNewPresenter
 import com.example.thecareapp.mvp.presenters.impls.CaseSummaryPresenterImpl
+import com.example.thecareapp.mvp.presenters.impls.GeneralQuestionsNewPresenterImpl
+import com.example.thecareapp.mvp.views.GeneralQuestionsNewView
 import kotlinx.android.synthetic.main.fragment_general_questions_new.*
 
-class GeneralQuestionsNewFragment : BaseFragment() {
+class GeneralQuestionsNewFragment : BaseFragment(), GeneralQuestionsNewView {
 
-    private lateinit var mPresenter : CaseSummaryPresenter
+    private lateinit var mPresenter : GeneralQuestionsNewPresenter
 
     companion object{
         fun newInstance(): GeneralQuestionsNewFragment{
@@ -34,6 +39,8 @@ class GeneralQuestionsNewFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpPresenter()
+        mPresenter.onUiReady(this)
+
         btnNext.setOnClickListener {
             val caseSummary = arrayListOf<CaseSummaryVO>()
 
@@ -57,6 +64,18 @@ class GeneralQuestionsNewFragment : BaseFragment() {
     }
 
     private fun setUpPresenter(){
-        mPresenter = ViewModelProviders.of(this).get(CaseSummaryPresenterImpl::class.java)
+        mPresenter = ViewModelProviders.of(this).get(GeneralQuestionsNewPresenterImpl::class.java)
+        mPresenter.initPresenter(this)
     }
+
+    fun openFragment(fragment : Fragment){
+        activity?.let {
+            it.supportFragmentManager.beginTransaction().replace(R.id.flQuestionsContainer, fragment).commit()
+        }
+    }
+
+    override fun navigateToSpecialQuestioins() {
+        openFragment(SpecialQuestionsFragment.newInstance())
+    }
+
 }

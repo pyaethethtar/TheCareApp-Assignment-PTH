@@ -1,0 +1,14 @@
+package com.example.thecareapp.mvp.presenters
+
+import androidx.lifecycle.LifecycleOwner
+import com.example.shared.data.vos.CaseSummaryVO
+import com.example.shared.data.vos.ConsultationRequestVO
+import com.example.shared.data.vos.PatientVO
+import com.example.shared.mvp.BasePresenter
+import com.example.thecareapp.mvp.views.GeneralQuestionsView
+
+interface GeneralQuestionsPresenter : BasePresenter<GeneralQuestionsView>{
+
+    fun onUiReady()
+    fun onTapNext(generalCasesummary: ArrayList<CaseSummaryVO>)
+}
