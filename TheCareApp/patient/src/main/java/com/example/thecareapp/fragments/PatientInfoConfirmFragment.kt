@@ -44,7 +44,7 @@ class PatientInfoConfirmFragment: BaseFragment(), PatientInfoConfirmView {
 
         setUpPresenterAndViewpods()
         mPresenter.onUiReady(this)
-
+        setUpListener()
 
     }
 
@@ -56,6 +56,12 @@ class PatientInfoConfirmFragment: BaseFragment(), PatientInfoConfirmView {
         mSpecialCaseSummaryViewpod = vpSpecialCaseSummary as SpecialCaseSummaryViewpod
     }
 
+    private fun setUpListener(){
+        btnCreateConsultationRequest.setOnClickListener {
+            mPresenter.onTapCreateConsultationRequest()
+        }
+    }
+
     override fun displayConsultationInfo(consultationRequestVO: ConsultationRequestVO) {
         mPatientInfoViewpod.displayPatientInfo(consultationRequestVO.patientInfo.patientName, consultationRequestVO.caseSummary)
         mSpecialCaseSummaryViewpod.displaySpecialCaseSummary(consultationRequestVO.caseSummary)
@@ -63,7 +69,6 @@ class PatientInfoConfirmFragment: BaseFragment(), PatientInfoConfirmView {
 
     override fun navigateToMainScreen() {
         activity?.finish()
-        Log.d("TheCareMM", "navigateToMainScreen")
     }
 
     override fun onAttach(context: Context) {

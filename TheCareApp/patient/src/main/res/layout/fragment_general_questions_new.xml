@@ -97,7 +97,8 @@
                 android:layout_width="369dp"
                 android:layout_height="48dp"
                 android:layout_toStartOf="@id/tvFt"
-                android:background="@drawable/rounded_corner_white" />
+                android:background="@drawable/rounded_corner_white"
+                android:layout_marginStart="@dimen/margin_medium_1"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -179,7 +180,8 @@
                 android:layout_height="@dimen/margin_xxlarge"
                 style="@style/text_regular.blue"
                 android:background="@drawable/rounded_corner_white"
-                android:layout_toStartOf="@id/tvLb"/>
+                android:layout_toStartOf="@id/tvLb"
+                android:layout_marginStart="@dimen/margin_medium_1"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -219,7 +221,8 @@
                 android:layout_height="@dimen/margin_xxlarge"
                 style="@style/text_regular.blue"
                 android:background="@drawable/rounded_corner_white"
-                android:layout_toStartOf="@id/tvMmHg"/>
+                android:layout_toStartOf="@id/tvMmHg"
+                android:layout_marginStart="@dimen/margin_medium_1"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -246,7 +249,8 @@
             style="@style/text_regular.blue"
             android:hint="@string/et_hint_allergic_medicine"
             android:background="@drawable/rounded_corner_white"
-            android:padding="@dimen/margin_medium_2" />
+            android:padding="@dimen/margin_medium_2"
+            android:inputType="textMultiLine"/>
     </androidx.cardview.widget.CardView>
 
     <org.mmtextview.components.MMButton

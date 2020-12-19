@@ -4,5 +4,5 @@ import com.example.shared.data.vos.CaseSummaryVO
 
 interface SpecialCaseSummaryDelegate {
 
-    fun onAnswerSpecialQuestion(casesummary: CaseSummaryVO)
+    fun onAnswerSpecialQuestion(position: Int, casesummary: CaseSummaryVO)
 }

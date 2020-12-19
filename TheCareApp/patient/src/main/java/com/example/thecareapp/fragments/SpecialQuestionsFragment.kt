@@ -62,11 +62,7 @@ class SpecialQuestionsFragment : BaseFragment(), SpecialQuestionsView {
     }
 
     private fun setUpListener(){
-       // val specialCaseSummary = arrayListOf<CaseSummaryVO>()
         btnContinue.setOnClickListener {
-//            for (i in 0..mAdapter.itemCount-1){
-//                specialCaseSummary.add(mAdapter.getSpecialCaseSummary())
-//            }
             mPresenter.onTapContinue()
         }
     }

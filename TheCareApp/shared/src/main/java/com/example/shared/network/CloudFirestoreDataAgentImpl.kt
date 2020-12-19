@@ -372,11 +372,12 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
-        val documentRef = if(consultationRequestVO.requestId!="") firestoreDb.collection(GET_CONSULTATION_REQUESTS).document()
+        val documentRef = if(consultationRequestVO.requestId=="") firestoreDb.collection(GET_CONSULTATION_REQUESTS).document()
         else firestoreDb.collection(GET_CONSULTATION_REQUESTS).document(consultationRequestVO.requestId)
 
 
         consultationRequestVO.requestId = documentRef.id
+        Log.d("TheCareMM", consultationRequestVO.requestId)
         val consultationRequestMap = consultationRequestVO.toConsultationRequestMap()
 
         documentRef.set(consultationRequestMap).addOnSuccessListener {
@@ -385,7 +386,6 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
                 caseSummary.question = cs.question
                 caseSummary.answer = cs.answer
                 documentRef.collection(GET_CASE_SUMMARY).document().set(caseSummary.toCaseSummaryMap())
-                Log.d("TheCareMM", cs.answer)
             }
             onSuccess()
         }.addOnFailureListener {

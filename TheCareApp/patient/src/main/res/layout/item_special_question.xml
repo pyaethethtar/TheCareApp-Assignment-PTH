@@ -21,7 +21,8 @@
         android:background="@drawable/rounded_corner_white"
         android:padding="@dimen/margin_medium"
         android:layout_below="@id/tvSpecialQuestion"
-        android:layout_marginTop="@dimen/margin_medium"/>
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium_1"/>
 
 <!--    <org.mmtextview.components.MMRadioButton-->
 <!--        android:id="@+id/rbYes"-->
@@ -47,7 +48,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:background="@color/colorGray"
         android:layout_below="@id/etSpecialAnswer"
         android:layout_marginTop="@dimen/margin_medium_2"
