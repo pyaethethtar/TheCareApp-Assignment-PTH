@@ -48,22 +48,23 @@ fun ConsultationRequestVO.toConsultationRequestMap() : HashMap<String, Serializa
     return consultationRequestMap
 }
 
-fun ConsultationVO.toConsultationMap() : HashMap<String, Serializable>{
+fun ConsultationVO.toConsultationMap() : HashMap<String, Serializable?>{
     val consultationMap = hashMapOf(
         "id" to this.consultationId,
         "doctor_info" to this.doctorInfo.toDoctorMap(),
         "patient_info" to this.patientInfo.toPatientMap(),
         "consultation_date" to this.consultationDate,
-        "status" to this.status
+        "status" to this.status,
+        "consultation_note" to this.consultationNote
     )
     return consultationMap
 }
 
-fun CheckoutVO.toCheckoutMap() : HashMap<String, Serializable>{
+fun CheckoutVO.toCheckoutMap() : HashMap<String, Serializable?>{
     val checkoutMap = hashMapOf(
         "id" to this.checkoutId,
         "patient_info" to this.patientInfo.toPatientMap(),
-        "delivery_info" to this.deliveryInfo.toDeliveryMap(),
+        "delivery_info" to this.deliveryInfo?.toDeliveryMap(),
         "total_amount" to this.totalAmount.toLong()
     )
     return checkoutMap
@@ -84,7 +85,9 @@ fun MedicationVO.toMedicationMap() : HashMap<String, Any?>{
         "count" to this.count?.toLong(),
         "price" to this.price?.toLong(),
         "taking_days" to this.takingDays?.toLong(),
-        "taking_times" to this.takingTimes
+        "taking_times" to this.takingTimes,
+        "before_after" to this.beforeAfter,
+        "medication_note" to this.medicationNote
     )
     return  medicationMap
 }
@@ -102,7 +105,9 @@ fun ChatVO.toChatMap() :  HashMap<String, String?>{
         "doctor" to this.doctor,
         "patient" to this.patient,
         "doctor_image" to this.doctorImage,
-        "patient_image" to this.patientImage
+        "patient_image" to this.patientImage,
+        "sending_date" to this.sendingDate,
+        "sending_time" to this.sendingTime
     )
     return chatMap
 }

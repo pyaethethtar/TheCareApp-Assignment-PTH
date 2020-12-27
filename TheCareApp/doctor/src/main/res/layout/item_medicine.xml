@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMedicine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paracetamol"
+        style="@style/text_regular_gray"
+        app:fontFamily="@font/poppins_medium"
+        android:layout_marginTop="@dimen/margin_medium_1"
+        android:layout_marginBottom="@dimen/margin_medium_1"/>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/view_color"
+        android:layout_below="@id/tvMedicine"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_circle_24"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/tvMedicine"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_remove_circle_24"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/tvMedicine"
+        android:visibility="gone"/>
+
+</RelativeLayout>

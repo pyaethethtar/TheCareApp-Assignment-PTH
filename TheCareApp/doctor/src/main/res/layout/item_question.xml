@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="@dimen/margin_medium_1">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_doctor_question"
+        app:fontFamily="@font/poppins_medium"
+        android:textColor="@color/textcolorSecondary"
+        android:textSize="@dimen/text_regular_2x"
+        android:lineSpacingMultiplier="1.3"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="@dimen/margin_medium_2"
+        android:background="@drawable/rounded_corner_border"/>
+</FrameLayout>

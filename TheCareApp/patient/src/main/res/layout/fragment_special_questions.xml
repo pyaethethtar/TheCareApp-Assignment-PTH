@@ -1,7 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_medium_2">
+
+    <RelativeLayout
+        android:id="@+id/rlView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
+        android:gravity="center_horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCircleChecked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check_circle_16"
+            app:tint="@color/primaryDarkColor" />
+        <View
+            android:id="@+id/ivLineChecked"
+            android:layout_width="@dimen/height_bottom_navi_bar"
+            android:layout_height="2dp"
+            android:background="@color/textcolorTertary"
+            android:backgroundTint="@color/primaryDarkColor"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/ivCircleChecked"/>
+        <View
+            android:id="@+id/ivLineUnchecked"
+            android:layout_width="@dimen/height_bottom_navi_bar"
+            android:layout_height="2dp"
+            android:background="@color/textcolorTertary"
+            android:backgroundTint="@color/primaryDarkColor"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/ivLineChecked"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCircleUnchecked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check_circle_16"
+            app:tint="@color/primaryDarkColor"
+            android:layout_toEndOf="@id/ivLineUnchecked"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvGeneralQuestions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_title_general_questions"
+            style="@style/text_regular.blue"
+            android:layout_weight="1"
+            android:textAlignment="center"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvSpecialQuestions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_title_special_questions"
+            style="@style/text_regular.blue"
+            android:layout_weight="1"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSpecialQuestions"

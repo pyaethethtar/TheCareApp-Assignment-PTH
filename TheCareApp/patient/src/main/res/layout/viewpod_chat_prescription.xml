@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.thecareapp.view.viewpods.ChatPrescriptionViewPod
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        app:cardCornerRadius="@dimen/margin_card_medium"
+        android:layout_marginTop="@dimen/margin_medium_3"
+        android:layout_marginStart="@dimen/margin_xxlarge"
+        android:layout_marginEnd="@dimen/size_appbar">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medication Recommendation"
+                android:textAlignment="textStart"
+                app:fontFamily="@font/poppins_regular"
+                style="@style/input_text"
+                android:paddingTop="@dimen/margin_medium_1"
+                android:paddingBottom="@dimen/margin_medium_1"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:paddingEnd="@dimen/margin_medium_3"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/view_color"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMedication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin_medium_2"
+                android:paddingEnd="@dimen/margin_medium_3"
+                android:paddingTop="@dimen/margin_medium_1"
+                android:paddingBottom="@dimen/margin_medium_1"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <org.mmtextview.components.MMButton
+        android:id="@+id/btnCheckout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_checkout_prescription"
+        style="@style/text_bg.blue.button"
+        android:background="@drawable/rounded_corner_blue"
+        android:layout_marginStart="@dimen/margin_xxlarge"
+        android:layout_marginEnd="@dimen/size_appbar"
+        android:layout_marginTop="@dimen/margin_medium_2"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDoctorSendingTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12:31 PM"
+        android:textSize="@dimen/text_regular"
+        android:textColor="@color/sending_time_color"
+        android:fontFamily="@font/poppins_regular"
+        android:drawableStart="@drawable/ic_baseline_done_all_24"
+        android:drawablePadding="@dimen/margin_medium_1"
+        android:layout_marginStart="@dimen/margin_xxlarge"
+        android:layout_marginEnd="@dimen/size_appbar"
+        android:layout_marginTop="@dimen/margin_medium_1"/>
+
+</com.example.thecareapp.view.viewpods.ChatPrescriptionViewPod>

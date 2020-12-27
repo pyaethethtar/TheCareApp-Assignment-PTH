@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProviders
-import com.example.shared.BaseActivity
+import com.example.shared.activities.BaseActivity
 import com.example.shared.data.vos.DoctorVO
 import com.example.thecarefordoctor.R
 import com.example.thecarefordoctor.mvp.presenters.DoctorInfoPresenter

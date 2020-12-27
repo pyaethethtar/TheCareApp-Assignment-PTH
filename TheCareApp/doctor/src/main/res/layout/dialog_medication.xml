@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:paddingStart="@dimen/margin_medium_2"
+    android:paddingEnd="@dimen/margin_medium_2"
+    android:paddingTop="@dimen/margin_large"
+    android:paddingBottom="@dimen/margin_large">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMedicine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Paracetamol"
+        android:textSize="@dimen/text_regular_3x"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/sending_time_color"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lblCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_count"
+        style="@style/text_regular_gray"
+        android:layout_below="@id/tvMedicine"
+        android:layout_marginTop="@dimen/margin_medium_2"/>
+
+    <RelativeLayout
+        android:id="@+id/layoutCount"
+        android:layout_width="@dimen/size_input_tablet"
+        android:layout_height="@dimen/height_edit_text"
+        android:layout_below="@id/lblCount"
+        android:background="@drawable/rounded_corner_border"
+        android:layout_marginTop="@dimen/margin_medium">
+
+        <TextView
+            android:id="@+id/lblTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_tablets"
+            style="@style/text_regular_gray"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etCount"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_xxlarge"
+            style="@style/text_regular_gray"
+            android:layout_toStartOf="@id/lblTab"
+            android:textAlignment="center" />
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lblDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_taking_days"
+        style="@style/text_regular_gray"
+        android:layout_above="@id/layoutDays"
+        android:layout_alignStart="@id/layoutDays"/>
+
+    <RelativeLayout
+        android:id="@+id/layoutDays"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_edit_text"
+        android:layout_toEndOf="@id/layoutCount"
+        android:layout_alignTop="@id/layoutCount"
+        android:background="@drawable/rounded_corner_border"
+        android:paddingStart="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium_3">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etDays"
+            android:layout_width="@dimen/size_input_tablet"
+            android:layout_height="match_parent"
+            style="@style/text_regular_gray"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@id/etDays"
+            android:background="@color/view_color"/>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerDays"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/text_regular_gray"
+            android:gravity="center_vertical"
+            android:entries="@array/taking_days_list"
+            android:layout_toEndOf="@id/view"
+            android:paddingStart="@dimen/margin_medium"/>
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lblTimes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_taking_times"
+        style="@style/text_regular_gray"
+        android:layout_below="@id/layoutCount"
+        android:layout_marginTop="@dimen/margin_medium_2"/>
+    
+    <LinearLayout
+        android:id="@+id/layoutTimes"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_edit_text"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_below="@id/lblTimes"
+        android:layout_marginTop="@dimen/margin_medium">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnMorning"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/lbl_morning"
+            style="@style/text_regular_gray"
+            android:background="@drawable/rounded_corner_border"
+            android:padding="@dimen/margin_medium"
+            android:gravity="center"
+            android:layout_weight="1"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnLunch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/lbl_lunch"
+            style="@style/text_regular_gray"
+            android:background="@drawable/rounded_corner_border"
+            android:padding="@dimen/margin_medium"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/margin_medium_2"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNight"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/lbl_night"
+            style="@style/text_regular_gray"
+            android:background="@drawable/rounded_corner_border"
+            android:padding="@dimen/margin_medium"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/margin_medium_2"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lblToMedicine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_to_medicine"
+        style="@style/text_regular_gray"
+        android:layout_below="@id/layoutTimes"
+        android:layout_marginTop="@dimen/margin_medium_2"/>
+
+    <LinearLayout
+        android:id="@+id/layoutToMedicine"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_edit_text"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_below="@id/lblToMedicine"
+        android:layout_marginTop="@dimen/margin_medium">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnBefore"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/lbl_before"
+            style="@style/text_regular_gray"
+            android:lineSpacingMultiplier="1.1"
+            android:background="@drawable/rounded_corner_border"
+            android:gravity="center"
+            android:layout_weight="1"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnAfter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/lbl_after"
+            style="@style/text_regular_gray"
+            android:lineSpacingMultiplier="1.1"
+            android:background="@drawable/rounded_corner_border"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginStart="@dimen/margin_medium"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/lblNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_note"
+        style="@style/text_regular_gray"
+        android:layout_below="@id/layoutToMedicine"
+        android:layout_marginTop="@dimen/margin_medium_2"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etNote"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_edit_text_2x"
+        style="@style/text_regular_gray"
+        android:layout_below="@id/lblNote"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:gravity="top|start"
+        android:padding="@dimen/margin_medium_1"
+        android:background="@drawable/rounded_corner_border"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAdd"
+        android:layout_width="@dimen/width_spinner"
+        android:layout_height="@dimen/height_button"
+        android:text="@string/btn_add"
+        android:textSize="@dimen/text_regular_2x_2"
+        style="@style/text_bg.blue.button"
+        android:background="@drawable/rounded_corner_blue"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:layout_below="@id/etNote"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>

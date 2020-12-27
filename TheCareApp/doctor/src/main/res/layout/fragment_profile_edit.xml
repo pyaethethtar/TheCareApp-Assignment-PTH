@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_arrow_black_24"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginBottom="@dimen/margin_medium_2"
+                />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:title="@string/title_edit_profile"
+                style="@style/text_title"
+                android:layout_toEndOf="@id/btnBack"/>
+
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/margin_medium_2"
+            android:paddingEnd="@dimen/margin_medium_2"
+            android:paddingTop="@dimen/margin_xlarge"
+            android:paddingBottom="@dimen/margin_xxlarge"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="@dimen/width_cardview_recent_doctor">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivDoctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/photo_1438761681033_6461_ffad_8_d_80"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btnUploadImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/btn_post_image"
+                    android:textSize="@dimen/text_regular"
+                    android:textColor="@color/colorWhite"
+                    android:gravity="center_horizontal"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:background="@color/colorGrayTransparent"
+                    android:layout_gravity="bottom"/>
+            </FrameLayout>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_name"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium_3"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text"
+                style="@style/input_text"
+                android:paddingStart="@dimen/margin_medium_1"
+                android:inputType="textPersonName"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_phone"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text"
+                style="@style/input_text"
+                android:paddingStart="@dimen/margin_medium_1"
+                android:inputType="phone"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblSpeciality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_speciality"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium_1"/>
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerSpeciality"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text"
+                style="@style/input_text"
+                android:background="@drawable/rounded_corner_text_input"
+                android:padding="@dimen/margin_medium_1"
+                android:layout_marginTop="@dimen/margin_small"
+                android:entries="@array/speciality_list"
+                android:spinnerMode="dropdown"/>
+
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblDob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_dob"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/margin_small_1"
+                android:weightSum="3">
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/input_text"
+                    android:textAlignment="center"
+                    android:background="@drawable/rounded_corner_text_input"
+                    android:padding="@dimen/margin_medium_1"
+                    android:layout_marginEnd="@dimen/margin_medium_2"
+                    android:layout_weight="1"
+                    android:entries="@array/days_list"
+                    android:spinnerMode="dropdown"/>
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerMonth"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/input_text"
+                    android:background="@drawable/rounded_corner_text_input"
+                    android:padding="@dimen/margin_medium_1"
+                    android:layout_weight="1"
+                    android:entries="@array/months_list"
+                    android:textAlignment="center"
+                    android:spinnerMode="dropdown"/>
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/spinnerYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/input_text"
+                    android:textAlignment="center"
+                    android:background="@drawable/rounded_corner_text_input"
+                    android:padding="@dimen/margin_medium_1"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/margin_medium_2"
+                    android:entries="@array/years_list"
+                    android:spinnerMode="dropdown"/>
+            </LinearLayout>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_experience"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium"/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etExperience"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text"
+                style="@style/input_text"
+                android:paddingStart="@dimen/margin_medium_1"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small" />
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_gender"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium"/>
+
+            <RadioGroup
+                android:id="@+id/rgGender"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_button"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/margin_small">
+
+                <org.mmtextview.components.MMRadioButton
+                    android:id="@+id/rbMale"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/lbl_male"
+                    style="@style/text_regular"
+                    android:padding="@dimen/margin_medium"
+                    android:layout_weight="1"/>
+
+                <org.mmtextview.components.MMRadioButton
+                    android:id="@+id/rbFemale"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/lbl_female"
+                    style="@style/text_regular"
+                    android:padding="@dimen/margin_medium"
+                    android:layout_weight="1"/>
+            </RadioGroup>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_address"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text_2x"
+                style="@style/input_text"
+                android:padding="@dimen/margin_medium_1"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small_1"
+                android:gravity="top"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblCertificates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_certificates"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etCertificates"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text_2x"
+                style="@style/input_text"
+                android:padding="@dimen/margin_medium_1"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small_1"
+                android:gravity="top"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/lblBrief"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_brief"
+                style="@style/lbl_input_text"
+                android:layout_marginTop="@dimen/margin_medium" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etBrief"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_edit_text_2x"
+                style="@style/input_text"
+                android:padding="@dimen/margin_medium_1"
+                android:background="@drawable/rounded_corner_text_input"
+                android:layout_marginTop="@dimen/margin_small_1"
+                android:gravity="top"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSave"
+                android:layout_width="@dimen/width_spinner"
+                android:layout_height="@dimen/height_button"
+                android:text="@string/btn_save"
+                android:textSize="@dimen/text_regular_2x_2"
+                style="@style/text_bg.blue.button"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/rounded_corner_blue"
+                android:layout_marginTop="@dimen/margin_large"/>
+
+
+
+
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

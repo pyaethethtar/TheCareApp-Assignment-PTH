@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:weightSum="3">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMedicine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Acetaminophen"
+        android:fontFamily="@font/poppins_medium"
+        style="@style/text_regular_black"
+        android:layout_weight="1"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="20 Tablet"
+        android:fontFamily="@font/poppins_medium"
+        style="@style/text_regular_black"
+        android:layout_weight="1"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:textAlignment="textEnd"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSubTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="15000"
+        android:fontFamily="@font/poppins_medium"
+        style="@style/text_regular_black"
+        android:layout_weight="1"
+        android:textAlignment="textEnd"/>
+</LinearLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.thecareapp.view.viewpods.NewAddressViewpod
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/margin_medium_1"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_address"
+            android:paddingStart="@dimen/margin_medium_2"
+            style="@style/text_bg"
+            android:background="@color/primaryDarkColor"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblDivision"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_division"
+            android:textSize="@dimen/text_regular_2x"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/sending_time_color"
+            android:layout_below="@id/lblAddress"
+            android:layout_margin="@dimen/margin_medium_1"/>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerDivision"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="@dimen/height_button"
+            android:layout_below="@id/lblDivision"
+            android:background="@drawable/rounded_corner_border"
+            android:entries="@array/division_list"
+            android:layout_alignStart="@id/lblDivision"
+            android:paddingStart="@dimen/margin_medium_1"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblTownship"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_township"
+            android:textSize="@dimen/text_regular_2x"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/sending_time_color"
+            android:layout_below="@id/lblAddress"
+            android:layout_margin="@dimen/margin_medium_1"
+            android:layout_alignParentEnd="true"/>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerTownship"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="@dimen/height_button"
+            android:layout_below="@id/lblTownship"
+            android:background="@drawable/rounded_corner_border"
+            android:entries="@array/township_list"
+            android:layout_alignStart="@id/lblTownship"
+            android:paddingStart="@dimen/margin_medium_1"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblFullAddress"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_full_address"
+            android:textSize="@dimen/text_regular_2x"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/sending_time_color"
+            android:layout_below="@id/spinnerDivision"
+            android:layout_margin="@dimen/margin_medium_1"/>
+        
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etFullAddress"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_edit_text_2x"
+            android:hint="@string/lbl_enter_full_address"
+            style="@style/input_text"
+            android:background="@drawable/rounded_corner_border"
+            android:layout_below="@id/lblFullAddress"
+            android:layout_alignStart="@id/lblDivision"
+            android:layout_alignEnd="@id/lblTownship"
+            android:padding="@dimen/margin_medium_1"
+            android:gravity="start"
+            android:layout_marginBottom="@dimen/margin_medium_3"/>
+
+
+    </RelativeLayout>
+
+</com.example.thecareapp.view.viewpods.NewAddressViewpod>

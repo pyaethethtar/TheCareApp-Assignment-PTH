@@ -2,7 +2,7 @@
     <string name="app_name">TheCareForDoctor</string>
     <string name="lbl_doctor_app">DOCTOR APP</string>
     <string name="lbl_consultation_history">ရက်ချိန်းယူမှု မှတ်တမ်းများ</string>
-    <string name="btn_prescription">ဆေးညွှန်း </string>
+    <string name="btn_prescription">ဆေးညွှန်းမည် </string>
     <string name="btn_case_summary">ဆေးမှတ်တမ်း</string>
     <string name="btn_note">"မှတ်ချက် "</string>
 </resources>

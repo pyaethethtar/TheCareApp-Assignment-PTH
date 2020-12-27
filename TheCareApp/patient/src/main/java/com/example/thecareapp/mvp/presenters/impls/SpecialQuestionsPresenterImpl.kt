@@ -31,7 +31,6 @@ class SpecialQuestionsPresenterImpl : SpecialQuestionsPresenter, AbstractBasePre
     }
 
     override fun onAnswerSpecialQuestion(position: Int, casesummary: CaseSummaryVO) {
-        Log.d("TheCareMM", position.toString())
         if (mPosition==position)    casesummaryList.set(position, casesummary)
         else{
             casesummaryList.add(position, casesummary)

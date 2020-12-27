@@ -3,15 +3,10 @@ package com.example.thecareapp.activities
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
-import com.bumptech.glide.Glide
-import com.example.shared.BaseActivity
-import com.example.shared.network.auth.AuthManagerApi
-import com.example.shared.network.auth.FirebaseAuthManager
+import com.example.shared.activities.BaseActivity
 import com.example.shared.utils.LOGIN_KEY
 import com.example.shared.utils.PATIENT_KEY
 import com.example.shared.utils.PREFERENCE_FILE_KEY
@@ -20,11 +15,8 @@ import com.example.thecareapp.mvp.presenters.LoginPresenter
 import com.example.thecareapp.mvp.presenters.impls.LoginPresenterImpl
 import com.example.thecareapp.mvp.views.LoginView
 import com.facebook.*
-import com.facebook.appevents.AppEventsLogger
-import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import kotlinx.android.synthetic.main.activity_login.*
-import java.util.*
 
 
 class LoginActivity : BaseActivity(), LoginView {
@@ -82,6 +74,7 @@ class LoginActivity : BaseActivity(), LoginView {
             mPresenter.onTapSignInWithFacebook()
         }
     }
+
 
     override fun navigateToMainScreen(userId: String) {
         isLogin = true

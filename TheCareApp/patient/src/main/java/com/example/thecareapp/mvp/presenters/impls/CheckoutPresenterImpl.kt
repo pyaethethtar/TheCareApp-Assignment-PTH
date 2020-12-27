@@ -23,6 +23,7 @@ class CheckoutPresenterImpl : CheckoutPresenter, AbstractBasePresenter<CheckoutV
         }).observe(lifecycleOwner, Observer {
             if (it!=null){
                 mView?.displayCheckoutInfo(it)
+                mView?.displayNewAddressViewpod()
             }
         })
     }
@@ -30,14 +31,14 @@ class CheckoutPresenterImpl : CheckoutPresenter, AbstractBasePresenter<CheckoutV
     override fun onTapCheckout(address: String) {
         val deliveryVO = DeliveryVO()
         deliveryVO.address = address
-        val checkoutVO = CheckoutVO()
-        checkoutVO.checkoutId = mCheckoutId
-        checkoutVO.deliveryInfo = deliveryVO
+        deliveryVO.fee = 3000
 
-        mCareModel.addCheckout(checkoutVO, onSuccess = {
+        mCareModel.addAddressToCheckout(mCheckoutId, deliveryVO, onSuccess = {
+            mCareModel.addCheckoutInfoToDB(mCheckoutId, onSuccess = {}, onFailure = {})
             mView?.displayCheckoutDialog()
         }, onFailure = {
             mView?.showErrorMessage(it)
         })
+
     }
 }

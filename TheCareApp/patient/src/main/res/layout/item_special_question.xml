@@ -10,19 +10,20 @@
         android:layout_height="wrap_content"
         android:text="@string/tv_special_question"
         style="@style/text_regular"
+        android:textSize="@dimen/text_regular_2x"
         android:layout_marginTop="@dimen/margin_large"
         android:layout_marginBottom="@dimen/margin_medium"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etSpecialAnswer"
         style="@style/text_regular"
+        android:textSize="@dimen/text_regular_2x"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/rounded_corner_white"
         android:padding="@dimen/margin_medium"
         android:layout_below="@id/tvSpecialQuestion"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginStart="@dimen/margin_medium_1"/>
+        android:layout_marginTop="@dimen/margin_medium"/>
 
 <!--    <org.mmtextview.components.MMRadioButton-->
 <!--        android:id="@+id/rbYes"-->
@@ -51,9 +52,7 @@
         android:layout_height="1dp"
         android:background="@color/colorGray"
         android:layout_below="@id/etSpecialAnswer"
-        android:layout_marginTop="@dimen/margin_medium_2"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginEnd="@dimen/margin_medium"/>
+        android:layout_marginTop="@dimen/margin_medium_2"/>
 
 
 </RelativeLayout>

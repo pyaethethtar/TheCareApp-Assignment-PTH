@@ -60,6 +60,25 @@
         <item name="android:paddingBottom">@dimen/margin_medium</item>
     </style>
 
+    <style name="text_regular_gray">
+        <item name="android:textColor">@color/sending_time_color</item>
+        <item name="android:textSize">@dimen/text_regular_2x</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+        <item name="android:lineSpacingExtra">9sp</item>
+    </style>
+
+    <style name="text_regular_black">
+        <item name="android:textColor">@color/textcolorPrimary</item>
+        <item name="android:textSize">@dimen/text_regular_2x</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+        <item name="android:lineSpacingExtra">9sp</item>
+    </style>
+
+
+
+
 
 
 

@@ -15,8 +15,8 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivRecentDoctor"
-            android:layout_width="@dimen/margin_xxlarge"
-            android:layout_height="@dimen/margin_xxlarge"
+            android:layout_width="@dimen/height_edit_text"
+            android:layout_height="@dimen/height_edit_text"
             android:src="@drawable/img_doctor"
             android:scaleType="centerCrop"
             android:layout_marginTop="@dimen/margin_medium"
@@ -27,9 +27,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/tv_doctor_name"
-            android:textSize="@dimen/text_regular"
-            android:textColor="@color/textcolorPrimary"
-            android:textStyle="bold"
+            android:textSize="@dimen/text_regular_2x"
+            android:textColor="@color/sending_time_color"
+            android:fontFamily="@font/poppins_bold"
+            android:textAlignment="center"
             android:layout_marginTop="@dimen/margin_medium_3"/>
 
         <org.mmtextview.components.MMTextView
@@ -38,7 +39,9 @@
             android:layout_height="wrap_content"
             android:text="@string/tv_speciality"
             android:textSize="@dimen/text_regular"
-            android:textColor="@color/textcolorPrimary"
+            android:textColor="@color/sending_time_color"
+            android:fontFamily="@font/poppins_medium"
+            android:textAlignment="center"
             android:layout_marginTop="@dimen/margin_medium"
             android:lineSpacingMultiplier="1.3"/>
 

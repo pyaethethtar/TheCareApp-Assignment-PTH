@@ -3,14 +3,84 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/margin_medium_2">
+
+
+
+        <RelativeLayout
+            android:id="@+id/rlView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_medium"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/ivCircleChecked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_circle_16"
+                app:tint="@color/primaryDarkColor"/>
+            <View
+                android:id="@+id/ivLineChecked"
+                android:layout_width="@dimen/height_bottom_navi_bar"
+                android:layout_height="2dp"
+                android:background="@color/textcolorTertary"
+                android:backgroundTint="@color/primaryDarkColor"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ivCircleChecked"/>
+            <View
+                android:id="@+id/ivLineUnchecked"
+                android:layout_width="@dimen/height_bottom_navi_bar"
+                android:layout_height="2dp"
+                android:background="@color/textcolorTertary"
+                android:backgroundTint="@color/textcolorTertary"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/ivLineChecked"/>
+            <ImageView
+                android:id="@+id/ivCircleUnchecked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_circle_16"
+                app:tint="@color/textcolorTertary"
+                android:layout_toEndOf="@id/ivLineUnchecked"/>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="@dimen/margin_large">
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvGeneralQuestions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_title_general_questions"
+                style="@style/text_regular.blue"
+                android:layout_weight="1"
+                android:textAlignment="center"/>
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/tvSpecialQuestions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_title_special_questions"
+                style="@style/text_regular.blue"
+                android:layout_weight="1"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
 
     <org.mmtextview.components.MMTextView
         android:id="@+id/lblDob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_dob"
-        style="@style/text_small.blue"/>
+        style="@style/text_regular.blue"/>
 
     <LinearLayout
         android:id="@+id/linearDob"
@@ -24,7 +94,7 @@
             android:id="@+id/spinnerDay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/input_text"
+            style="@style/text_regular.blue"
             android:textAlignment="center"
             android:background="@drawable/rounded_corner_white"
             android:padding="@dimen/margin_medium_1"
@@ -39,7 +109,7 @@
             android:id="@+id/spinnerMonth"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/input_text"
+            style="@style/text_regular.blue"
             android:background="@drawable/rounded_corner_white"
             android:padding="@dimen/margin_medium_1"
             android:layout_weight="1"
@@ -51,7 +121,7 @@
             android:id="@+id/spinnerYear"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/input_text"
+            style="@style/text_regular.blue"
             android:textAlignment="center"
             android:background="@drawable/rounded_corner_white"
             android:padding="@dimen/margin_medium_1"
@@ -66,7 +136,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_height"
-        style="@style/text_small.blue"
+        style="@style/text_regular.blue"
         android:layout_marginTop="@dimen/margin_medium_1"/>
 
     <androidx.cardview.widget.CardView
@@ -81,7 +151,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvFt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -94,6 +164,7 @@
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/etHeight"
                 style="@style/text_regular.blue"
+                android:textSize="@dimen/text_regular_2x"
                 android:layout_width="369dp"
                 android:layout_height="48dp"
                 android:layout_toStartOf="@id/tvFt"
@@ -107,7 +178,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_bloodtype"
-        style="@style/text_small.blue"
+        style="@style/text_regular.blue"
         android:layout_marginTop="@dimen/margin_medium_1"/>
 
     <androidx.cardview.widget.CardView
@@ -122,7 +193,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btnDropDownBloodType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,7 +206,7 @@
                 android:id="@+id/spinnerBlood"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_xxlarge"
-                style="@style/input_text"
+                style="@style/text_regular.blue"
                 android:background="@drawable/rounded_corner_white"
                 android:padding="@dimen/margin_medium_1"
                 android:layout_toStartOf="@id/btnDropDownBloodType"
@@ -149,7 +220,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_weight"
-        style="@style/text_small.blue"
+        style="@style/text_regular.blue"
         android:layout_marginTop="@dimen/margin_medium_1"/>
 
     <androidx.cardview.widget.CardView
@@ -164,7 +235,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvLb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -179,6 +250,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_xxlarge"
                 style="@style/text_regular.blue"
+                android:textSize="@dimen/text_regular_2x"
                 android:background="@drawable/rounded_corner_white"
                 android:layout_toStartOf="@id/tvLb"
                 android:layout_marginStart="@dimen/margin_medium_1"/>
@@ -190,7 +262,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_blood_pressure"
-        style="@style/text_small.blue"
+        style="@style/text_regular.blue"
         android:layout_marginTop="@dimen/margin_medium_1"/>
 
     <androidx.cardview.widget.CardView
@@ -205,7 +277,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvMmHg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -220,6 +292,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/margin_xxlarge"
                 style="@style/text_regular.blue"
+                android:textSize="@dimen/text_regular_2x"
                 android:background="@drawable/rounded_corner_white"
                 android:layout_toStartOf="@id/tvMmHg"
                 android:layout_marginStart="@dimen/margin_medium_1"/>
@@ -231,7 +304,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_allergic_medicine"
-        style="@style/text_small.blue"
+        style="@style/text_regular.blue"
         android:layout_marginTop="@dimen/margin_medium_1"/>
 
     <androidx.cardview.widget.CardView
@@ -245,12 +318,14 @@
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etAllergicMedicine"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_cardview_recent_doctor"
+            android:layout_height="@dimen/width_spinner"
             style="@style/text_regular.blue"
+            android:textSize="@dimen/text_regular_2x"
             android:hint="@string/et_hint_allergic_medicine"
             android:background="@drawable/rounded_corner_white"
             android:padding="@dimen/margin_medium_2"
-            android:inputType="textMultiLine"/>
+            android:inputType="textMultiLine"
+            android:gravity="top"/>
     </androidx.cardview.widget.CardView>
 
     <org.mmtextview.components.MMButton

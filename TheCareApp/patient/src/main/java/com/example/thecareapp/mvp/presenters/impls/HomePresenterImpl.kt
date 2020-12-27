@@ -1,12 +1,14 @@
 package com.example.thecareapp.mvp.presenters.impls
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.example.shared.data.models.AuthenticationModel
 import com.example.shared.data.models.AuthenticationModelImpl
 import com.example.shared.data.models.TheCareModel
 import com.example.shared.data.models.TheCareModelImpl
+import com.example.shared.data.vos.ConsultationVO
 import com.example.shared.data.vos.DoctorVO
 import com.example.shared.data.vos.PatientVO
 import com.example.shared.mvp.AbstractBasePresenter
@@ -23,22 +25,40 @@ class HomePresenterImpl: HomePresenter, AbstractBasePresenter<HomeView>() {
     override fun onUiReady(patientId: String, lifecycleOwner: LifecycleOwner) {
         mPatientId = patientId
         mLifecycleOwner = lifecycleOwner
-        requestSpecialities()
+
+        mCareModel.getPatientById(patientId, onFailure = {
+            mView?.showErrorMessage(it)
+        }).observe(lifecycleOwner, Observer {
+            if (it==null){
+                mCareModel.getDataFromApiAndSaveToPatientDB(patientId, onSuccess = {}, onFailure = {})
+            }
+            else{
+                requestSpecialities()
+            }
+        })
+
+
+
+        mCareModel.addConsultationListToPatientDB(patientId, onSuccess = {}, onFailure = {})
         requestPatientInfo()
+        observeConsultationResponse(lifecycleOwner)
     }
 
-    override fun onObserveConsultationResponse(lifecycleOwner: LifecycleOwner) {
+    private fun observeConsultationResponse(lifecycleOwner: LifecycleOwner) {
         mCareModel.getConsultationList(onFailure = {
             mView?.showErrorMessage(it)
-        }).observe(lifecycleOwner, Observer {consultationList->
-            if (consultationList.isNotEmpty()){
-                for (consultation in consultationList){
+        }).observe(lifecycleOwner, Observer {
+            if (it.isNotEmpty()){
+                val consultationList = arrayListOf<ConsultationVO>()
+                for (consultation in it){
                     if (consultation.status== CONSULTATION_STATUS_START){
-                        mView?.displayConsultationResponse(consultation)
-                    }else{
-                        mView?.displayEmptyResponse()
+                        consultationList.add(consultation)
                     }
                 }
+                if (consultationList.isNotEmpty())  mView?.displayConsultationResponse(consultationList.first())
+            }
+            else{
+                mView?.displayEmptyResponse()
             }
         })
     }
@@ -48,7 +68,7 @@ class HomePresenterImpl: HomePresenter, AbstractBasePresenter<HomeView>() {
     }
 
     override fun onTapStartConsultation(consultationId: String) {
-        mView?.navigateToChatScreen()
+        mView?.navigateToChatScreen(consultationId)
     }
 
     override fun onTapSpeciality(speciality: String) {
@@ -79,8 +99,9 @@ class HomePresenterImpl: HomePresenter, AbstractBasePresenter<HomeView>() {
         })
     }
 
-    private fun requestRecentlyConsultedDoctors(doctorIdList : ArrayList<String>){
+    private fun requestRecentlyConsultedDoctors(doctorIdList: ArrayList<String>){
         mCareModel.addRecentDoctorsToDB(doctorIdList, onSuccess = {}, onFailure = {})
+
         mCareModel.getDoctorsList(onFailure = {
             mView?.showErrorMessage(it)
         }).observe(mLifecycleOwner, Observer {

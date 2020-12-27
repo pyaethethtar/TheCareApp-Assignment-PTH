@@ -30,16 +30,20 @@ class CaseSummaryPresenterImpl : CaseSummaryPresenter, AbstractBasePresenter<Cas
                     mCareModel.consultationRequestVO.patientInfo = mPatientVO
                     mCareModel.consultationRequestVO.speciality = speciality
 
-                    mPatientVO.patientCaseSummary?.let {
-                        if (it.isNotEmpty()){
-                            mView?.navigateToGeneralQuestions(mPatientVO)
+                    if (mPatientVO.patientCaseSummary!=null){
+                        mPatientVO.patientCaseSummary?.let {
+                            if (it.isNotEmpty()){
+                                mView?.navigateToGeneralQuestions(mPatientVO)
+                            }
+                            else{
+                                mView?.navigateToGeneralQuestionsNew()
+                            }
                         }
-                        else{
-                            mView?.navigateToGeneralQuestionsNew()
-                        }
-                    }.run {
+                    }
+                    else{
                         mView?.navigateToGeneralQuestionsNew()
                     }
+
                 }
             })
     }

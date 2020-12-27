@@ -15,5 +15,5 @@ interface HomeView : BaseView {
     fun displayEmptyRecentDoctor()
     fun displayConfimationDialog(speciality: String)
     fun navigateToCaseSummaryScreen(speciality: String)
-    fun navigateToChatScreen()
+    fun navigateToChatScreen(consultationId: String)
 }

@@ -13,8 +13,12 @@ import com.example.shared.utils.REQUEST_STATUS_REQUEST
 object TheCareModelImpl : TheCareModel, BaseModel() {
 
     override var mFirebaseApi: FirebaseApi = CloudFirestoreDataAgentImpl
-
     override var consultationRequestVO: ConsultationRequestVO = ConsultationRequestVO()
+    override var mPatientId: String = ""
+
+    override var mSpeciality: String = ""
+    override var mConsultationId: String = ""
+    override var medicationList: ArrayList<MedicationVO> = arrayListOf()
 
     override fun getDataFromApiAndSaveToPatientDB(
         patientId: String,
@@ -41,7 +45,7 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
             onFailure(it)
         })
 
-        addConsultationListToPatientDB(patientId, onSuccess, onFailure)
+        //addConsultationListToPatientDB(patientId, onSuccess, onFailure)
 
     }
 
@@ -50,7 +54,7 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
-        var mSpeciality = ""
+
 
         mFirebaseApi.getDoctorInfo(doctorId, onSuccess = {
             mTheDB.doctorDao().deleteAllDoctors()
@@ -69,7 +73,7 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
         })
 
 
-        addConsultationListToDoctorDB(doctorId, onSuccess, onFailure)
+        //addConsultationListToDoctorDB(doctorId, onSuccess, onFailure)
 
     }
 
@@ -108,8 +112,8 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
                 }
                 mTheDB.consultationRequestDao().deleteAllConsultationRequests()
                 mTheDB.consultationRequestDao().addAllConsultationRequests(requestList)
+                onSuccess()
             }
-            onSuccess()
         }, onFailure = {
             onFailure(it)
         })
@@ -120,7 +124,7 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
             if (it.isNotEmpty()){
                 val consultations = arrayListOf<ConsultationVO>()
                 for (consultation in it){
-                    if (doctorId == consultation.doctorInfo.doctorId && consultation.status== CONSULTATION_STATUS_END){
+                    if (doctorId == consultation.doctorInfo.doctorId){
                         consultations.add(consultation)
                     }
                 }
@@ -155,19 +159,21 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
         })
     }
 
-    override fun addChatMessageToDB(
+    override fun getConsultationByIdAndSaveToDB(
         consultationId: String,
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mFirebaseApi.getChatMessages(consultationId, onSuccess = {
-//            mTheDB.consultationDao().updateChatMessages(consultationId, arrayListOf())
-//            mTheDB.consultationDao().updateChatMessages(consultationId, it)
-            onSuccess()
-        }, onFailure = {
+        mFirebaseApi.getConsultationById(consultationId, onSuccess={
+            if (it!=null){
+                mTheDB.consultationDao().addConsultation(it)
+                onSuccess()
+            }
+        }, onFailure={
             onFailure(it)
         })
     }
+
 
     override fun addCheckoutInfoToDB(checkoutId: String, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
         mFirebaseApi.getCheckoutInfo(checkoutId, onSuccess = {
@@ -198,6 +204,54 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
         })
     }
 
+    override fun getChatMessagesAndSaveToDB(
+        consultationVO: ConsultationVO,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.getChatMessages(consultationVO.consultationId, onSuccess = {
+            if (it!=null && it.isNotEmpty()){
+                consultationVO.chats = it
+                mTheDB.consultationDao().addConsultation(consultationVO)
+            }
+            onSuccess()
+        }, onFailure = {
+            onFailure(it)
+        })
+    }
+
+    override fun getMedicationListAndSaveToDB(
+        consultationVO: ConsultationVO,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.getMedicationList(consultationVO.consultationId, onSuccess = {
+            if (it!=null && it.isNotEmpty()){
+                consultationVO.prescriptions = it
+                mTheDB.consultationDao().addConsultation(consultationVO)
+            }
+            onSuccess()
+        }, onFailure = {
+            onFailure(it)
+        })
+    }
+
+//    override fun getNewConsultationAndSaveToDB(onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+//        mFirebaseApi.getNewConsultation(onSuccess = {
+//            if (it.isNotEmpty()){
+//                val consultations = arrayListOf<ConsultationVO>()
+//                for (consultation in it){
+//                    if (mPatientId == consultation.patientInfo.patientId){
+//                        consultations.add(consultation)
+//                    }
+//                }
+//
+//            }
+//        }, onFailure = {
+//            onFailure(it)
+//        })
+//    }
+
     override fun addNewDoctor(
         doctorVO: DoctorVO,
         onSuccess: () -> Unit,
@@ -216,6 +270,24 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
         mFirebaseApi.addNewPatient(patientVO, onSuccess, onFailure)
     }
 
+    override fun updateDoctorInfo(
+        doctorVO: DoctorVO,
+        image: Bitmap,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.updateDoctorInfo(doctorVO, image, onSuccess, onFailure)
+    }
+
+    override fun updatePatientInfo(
+        patientVO: PatientVO,
+        image: Bitmap,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.updatePatientInfo(patientVO, image, onSuccess, onFailure)
+    }
+
     override fun addConsultationRequest(
         consultationRequestVO: ConsultationRequestVO,
         onSuccess: () -> Unit,
@@ -224,12 +296,45 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
         mFirebaseApi.addConsultationRequest(consultationRequestVO, onSuccess, onFailure)
     }
 
-    override fun addNewConsultation(
-        consultationVO: ConsultationVO,
+    override fun updateStatusConsultationRequest(
+        requestId: String,
+        status: String,
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
+        mFirebaseApi.updateStatusConsultationRequest(requestId, status, onSuccess, onFailure)
+    }
+
+    override fun addNewConsultation(
+        consultationVO: ConsultationVO,
+        onSuccess: (consultationId:String) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
         mFirebaseApi.addNewConsultation(consultationVO, onSuccess, onFailure)
+    }
+
+    override fun addMedicationListToConsultation(
+        consultationId: String,
+        medications: ArrayList<MedicationVO>
+    ) {
+        mFirebaseApi.addMedicationListToConsultation(consultationId, medications)
+    }
+
+    override fun addNoteToConsultation(
+        consultationId: String,
+        note: String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.addNoteToConsultation(consultationId, note, onSuccess, onFailure)
+    }
+
+    override fun finishConsultation(
+        consultationId: String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.finishConsultation(consultationId, onSuccess, onFailure)
     }
 
     override fun addChatTextMessage(
@@ -239,11 +344,7 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mFirebaseApi.addChatTextMessage(consultationId, sender, message, onSuccess={
-            addChatMessageToDB(consultationId, onSuccess, onFailure)
-        }, onFailure={
-            onFailure(it)
-        })
+        mFirebaseApi.addChatTextMessage(consultationId, sender, message, onSuccess, onFailure)
     }
 
     override fun addChatImageMessage(
@@ -258,14 +359,19 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
 
     override fun addCheckout(
         checkoutVO: CheckoutVO,
+        onSuccess: (id: String) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.addCheckout(checkoutVO, onSuccess, onFailure)
+    }
+
+    override fun addAddressToCheckout(
+        checkoutId: String,
+        deliveryVO: DeliveryVO,
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
-        mFirebaseApi.addCheckout(checkoutVO, onSuccess={
-            addCheckoutInfoToDB(checkoutVO.checkoutId, onSuccess, onFailure)
-        }, onFailure={
-            onFailure(it)
-        })
+        mFirebaseApi.addAddressToCheckout(checkoutId, deliveryVO, onSuccess, onFailure)
     }
 
     override fun addRecentlyConsultedDoctor(
@@ -283,14 +389,6 @@ object TheCareModelImpl : TheCareModel, BaseModel() {
 
     override fun getConsultationRequestById(requestId: String, onFailure: (String) -> Unit): LiveData<ConsultationRequestVO> {
         return mTheDB.consultationRequestDao().getConsultationRequestById(requestId)
-    }
-
-    override fun getChatMessages(
-        consultationId: String,
-        onFailure: (String) -> Unit
-    ): LiveData<List<ChatVO>> {
-        //return mTheDB.consultationDao().getChatMessages(consultationId)
-        return MutableLiveData<List<ChatVO>>()
     }
 
     override fun getConsultationList(onFailure: (String) -> Unit): LiveData<List<ConsultationVO>> {

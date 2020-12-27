@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/size_input_tablet"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
-    app:cardCornerRadius="@dimen/margin_medium_3"
+    app:cardCornerRadius="@dimen/margin_medium_1"
     android:layout_marginBottom="@dimen/margin_medium"
     android:layout_marginEnd="@dimen/margin_medium">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingTop="@dimen/margin_medium_3"
         android:paddingBottom="@dimen/margin_medium_3"
         android:paddingStart="@dimen/margin_medium_2"
@@ -21,7 +21,8 @@
             android:layout_width="@dimen/margin_xlarge"
             android:layout_height="@dimen/margin_xlarge"
             android:src="@drawable/img_speciality"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:layout_centerVertical="true"/>
 
         <org.mmtextview.components.MMTextView
             android:id="@+id/tvSpeciality"

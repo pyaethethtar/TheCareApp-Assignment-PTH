@@ -94,9 +94,9 @@ class GeneralQuestionsFragment : BaseFragment(), GeneralQuestionsView {
     override fun displayPatientInfo() {
         tvPatientName.setText(arguments?.getString(PATIENT_NAME_EXTRA)?:"-")
         tvDob.setText(arguments?.getString(PATIENT_DOB_EXTRA)?:"-")
-        lblHeight.setText(arguments?.getString(PATIENT_HEIGHT_EXTRA)?:"-")
-        lblBloodType.setText(arguments?.getString(PATIENT_BLOOD_TYPE_EXTRA)?:"-")
-        lblAllergicMedicine.setText(arguments?.getString(PATIENT_ALLERGIC_MEDICINE_EXTRA)?:"-")
+        tvHeight.setText(arguments?.getString(PATIENT_HEIGHT_EXTRA)?:"-")
+        tvBloodType.setText(arguments?.getString(PATIENT_BLOOD_TYPE_EXTRA)?:"-")
+        tvAllergicMedicine.setText(arguments?.getString(PATIENT_ALLERGIC_MEDICINE_EXTRA)?:"-")
     }
 
     override fun navigateToSpecialQuestioins() {

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.thecarefordoctor.view.viewpods.ChatPrescriptionViewpod
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_corner_message_blue"
+    android:layout_gravity="end">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medication Recommendation"
+        android:textAlignment="textStart"
+        app:fontFamily="@font/poppins_regular"
+        style="@style/input_text"
+        android:paddingTop="@dimen/margin_medium_1"
+        android:paddingBottom="@dimen/margin_medium_1"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingEnd="@dimen/margin_medium_3"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/view_color"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMedication"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingEnd="@dimen/margin_medium_3"
+        android:paddingTop="@dimen/margin_medium_1"
+        android:paddingBottom="@dimen/margin_medium_1"/>
+
+</com.example.thecarefordoctor.view.viewpods.ChatPrescriptionViewpod>

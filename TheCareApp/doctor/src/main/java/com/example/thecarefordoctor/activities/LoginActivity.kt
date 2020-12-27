@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProviders
-import com.example.shared.BaseActivity
+import com.example.shared.activities.BaseActivity
 import com.example.shared.utils.DOCTOR_KEY
 import com.example.shared.utils.LOGIN_KEY
 import com.example.shared.utils.PREFERENCE_FILE_KEY

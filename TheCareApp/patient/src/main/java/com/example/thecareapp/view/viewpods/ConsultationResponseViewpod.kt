@@ -2,6 +2,7 @@ package com.example.thecareapp.view.viewpods
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide
 import com.example.shared.data.vos.ConsultationVO
@@ -13,7 +14,7 @@ class ConsultationResponseViewpod @JvmOverloads constructor(
 ) : CardView(context, attrs, defStyleAttr) {
 
     private lateinit var mDelegate: ConsultationResponseDelegate
-    private lateinit var mConsultationId : String
+    private var mConsultationId : String = ""
 
     override fun onFinishInflate() {
         super.onFinishInflate()
@@ -31,7 +32,12 @@ class ConsultationResponseViewpod @JvmOverloads constructor(
         tvDoctorSpeciality.text = doctor.speciality
         tvDoctorBrief.text = doctor.doctorBrief
 
-        setUpListener()
+
+        Log.d("ConsultationId", mConsultationId)
+        //setUpListener()
+        btnStartConsultation.setOnClickListener {
+            mDelegate.onTapStartConsultation(mConsultationId)
+        }
     }
 
 

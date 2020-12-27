@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.example.shared.BaseActivity
+import com.example.shared.activities.BaseActivity
 import com.example.shared.data.vos.PatientVO
 import com.example.thecareapp.R
 import com.example.thecareapp.fragments.GeneralQuestionsFragment

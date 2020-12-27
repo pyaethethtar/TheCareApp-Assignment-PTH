@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/rounded_corner_white_2x">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/margin_xlarge"
+        android:paddingBottom="@dimen/margin_xlarge"
+        android:paddingStart="@dimen/margin_medium_3"
+        android:paddingEnd="@dimen/margin_medium_3">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblPrescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_prescription"
+            style="@style/text_bg"
+            android:background="@drawable/lable_gray"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPrescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_medium_1"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnClose"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_button"
+            android:text="@string/btn_close"
+            android:textSize="@dimen/text_regular_2x_2"
+            style="@style/text_bg.blue.button"
+            android:background="@drawable/rounded_corner_blue"
+            android:layout_marginTop="@dimen/margin_xlarge"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

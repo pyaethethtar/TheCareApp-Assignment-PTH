@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    app:cardCornerRadius="@dimen/margin_medium_1"
+    android:layout_marginTop="@dimen/margin_medium_2">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDoctor"
+            android:layout_width="@dimen/height_bottom_navi_bar"
+            android:layout_height="@dimen/height_bottom_navi_bar"
+            android:src="@drawable/photo_1438761681033_6461_ffad_8_d_80"
+            android:layout_marginStart="@dimen/margin_medium_3"
+            android:layout_marginTop="@dimen/margin_large"/>
+        
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvDoctorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_doctor_name"
+            style="@style/text_title"
+            android:layout_toEndOf="@id/ivDoctor"
+            android:layout_marginStart="@dimen/margin_medium_3"
+            android:layout_marginTop="@dimen/margin_medium_3"/>
+
+        <org.mmtextview.components.MMTextView
+            android:id="@+id/tvDoctorSpeciality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_speciality"
+            style="@style/input_text"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_below="@id/tvDoctorName"
+            android:layout_alignStart="@id/tvDoctorName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvConsultationDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "20/12/2020"
+            style="@style/lbl_input_text"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/margin_medium_1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_xxlarge"
+            android:layout_marginTop="@dimen/margin_xlarge_1"
+            android:background="@color/primaryDarkColor"
+            android:layout_below="@id/tvDoctorSpeciality"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/btnSendMessage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/btn_send_message"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_regular_2x"
+                android:fontFamily="@font/poppins_medium"
+                android:textAlignment="center"
+                android:drawableStart="@drawable/ic_baseline_comment_24"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/margin_xlarge_1"
+                android:paddingEnd="@dimen/margin_xlarge_1"
+                android:gravity="center"/>
+            <org.mmtextview.components.MMTextView
+                android:id="@+id/btnPrescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/lbl_prescription"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_regular_2x"
+                android:fontFamily="@font/poppins_medium"
+                android:textAlignment="center"
+                android:drawableStart="@drawable/ic_baseline_assignment_24"
+                android:layout_weight="1"
+                android:paddingStart="@dimen/margin_xlarge_1"
+                android:paddingEnd="@dimen/margin_xlarge_1"
+                android:gravity="center"/>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -89,6 +89,9 @@ fun MutableMap<String, Any>.toConsultationVO() : ConsultationVO{
     consultationVO.patientInfo = (this["patient_info"]  as MutableMap<String, Any>).toPatientVO()
     consultationVO.consultationDate = this.get("consultation_date") as String
     consultationVO.status = this.get("status") as String
+    this.get("consultation_note")?.let {
+        consultationVO.consultationNote = it as String
+    }
 
     return consultationVO
 }
@@ -145,6 +148,12 @@ fun MutableMap<String, Any>.toChatVO() : ChatVO{
     this.get("patient_image")?.let {
         chatVO.patientImage = it as String
     }
+    this.get("sending_date")?.let {
+        chatVO.sendingDate = it as String
+    }
+    this.get("sending_time")?.let {
+        chatVO.sendingTime = it as String
+    }
     return chatVO
 }
 
@@ -164,6 +173,12 @@ fun MutableMap<String, Any>.toMedicationVO() : MedicationVO{
     }
     this.get("taking_times")?.let {
         medicationVO.takingTimes = it as String
+    }
+    this.get("before_after")?.let {
+        medicationVO.beforeAfter = it as String
+    }
+    this.get("medication_note")?.let {
+        medicationVO.medicationNote = it as String
     }
 
     return medicationVO
@@ -193,7 +208,9 @@ fun MutableMap<String, Any>.toCheckoutVO() : CheckoutVO{
     val checkoutVO = CheckoutVO()
     checkoutVO.checkoutId = this.get("id") as String
     checkoutVO.patientInfo = (this.get("patient_info") as MutableMap<String, Any>).toPatientVO()
-    checkoutVO.deliveryInfo = (this.get("delivery_info") as MutableMap<String, Any>).toDeliveryVO()
+    this.get("delivery_info")?.let {
+        checkoutVO.deliveryInfo = (it as MutableMap<String, Any>).toDeliveryVO()
+    }
     checkoutVO.totalAmount = (this.get("total_amount") as Long).toInt()
     return checkoutVO
 }

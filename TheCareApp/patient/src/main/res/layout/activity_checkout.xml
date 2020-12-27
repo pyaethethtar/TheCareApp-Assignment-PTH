@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CheckoutActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_arrow_black_24"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginBottom="@dimen/margin_medium_2"
+                />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:title="@string/btn_checkout_prescription"
+                style="@style/text_title"
+                android:layout_toEndOf="@id/btnBack"/>
+
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:background="@color/bg_color">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_medium_3">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/margin_medium_1"
+                android:background="@color/colorWhite">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lblPrescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_prescription"
+                        android:paddingStart="@dimen/margin_medium_2"
+                        style="@style/text_bg"
+                        android:background="@color/primaryDarkColor"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvMedicines"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/margin_medium_1"
+                        android:layout_below="@id/lblPrescription"
+                        android:layout_marginTop="@dimen/margin_small"/>
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/view_color"
+                        android:layout_below="@id/rvMedicines"
+                        android:layout_marginStart="@dimen/margin_medium_1"
+                        android:layout_marginEnd="@dimen/margin_medium_1"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lblTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_total_mmk"
+                        android:textSize="@dimen/text_regular_2x"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/sending_time_color"
+                        android:layout_below="@id/view"
+                        android:padding="@dimen/margin_medium_1"
+                        android:layout_marginBottom="@dimen/margin_large"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="18,500"
+                        android:textSize="@dimen/text_regular_2x"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/sending_time_color"
+                        android:layout_below="@id/view"
+                        android:padding="@dimen/margin_medium_1"
+                        android:layout_marginBottom="@dimen/margin_large"
+                        android:layout_alignParentEnd="true"/>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <include
+                android:id="@+id/vpAddress"
+                layout="@layout/viewpod_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:visibility="gone"/>
+
+            <include
+                android:id="@+id/vpNewAddress"
+                layout="@layout/viewpod_new_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_xxlarge"
+                android:text="@string/btn_checkout"
+                style="@style/text_bg.blue.button"
+                android:textSize="@dimen/text_regular_2x"
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:layout_marginEnd="@dimen/margin_medium_3"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:layout_marginBottom="@dimen/margin_xlarge"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

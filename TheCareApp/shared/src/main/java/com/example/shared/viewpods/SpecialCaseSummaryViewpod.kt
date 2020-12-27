@@ -25,7 +25,7 @@ class SpecialCaseSummaryViewpod @JvmOverloads constructor(
         rvSpecialCaseSummary.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
 
-    fun displaySpecialCaseSummary(casesummary : ArrayList<CaseSummaryVO>){
+    fun displaySpecialCaseSummary(casesummary : List<CaseSummaryVO>){
         mAdapter.setNewData(casesummary)
     }
 

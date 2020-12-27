@@ -9,7 +9,7 @@ import com.example.shared.persistence.daos.*
 
 @Database(entities = [SpecialityVO::class, DoctorVO::class, PatientVO::class,
     GeneralQuestionVO::class, ConsultationVO::class, ConsultationRequestVO::class,
-    CheckoutVO::class], version = 3, exportSchema = false)
+    CheckoutVO::class], version = 4, exportSchema = false)
 abstract class TheCareDB : RoomDatabase() {
 
     companion object{

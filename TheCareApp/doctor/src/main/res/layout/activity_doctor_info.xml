@@ -131,7 +131,7 @@
                     android:id="@+id/rbMale"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/lbl_man"
+                    android:text="@string/lbl_male"
                     style="@style/text_regular"
                     android:padding="@dimen/margin_medium"
                     android:layout_weight="1"/>
@@ -140,7 +140,7 @@
                     android:id="@+id/rbFemale"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/lbl_woman"
+                    android:text="@string/lbl_female"
                     style="@style/text_regular"
                     android:padding="@dimen/margin_medium"
                     android:layout_weight="1"/>
@@ -200,6 +200,7 @@
                 android:padding="@dimen/margin_medium_1"
                 android:background="@drawable/rounded_corner_text_input"
                 android:layout_marginTop="@dimen/margin_small_1"
+                android:gravity="top"
                 />
 
             <org.mmtextview.components.MMTextView
@@ -217,15 +218,17 @@
                 style="@style/input_text"
                 android:padding="@dimen/margin_medium_1"
                 android:background="@drawable/rounded_corner_text_input"
-                android:layout_marginTop="@dimen/margin_small_1"/>
+                android:layout_marginTop="@dimen/margin_small_1"
+                android:gravity="top"/>
 
             <org.mmtextview.components.MMTextView
                 android:id="@+id/lblAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lbl_address"
+                android:text="@string/lbl_full_address"
                 style="@style/lbl_input_text"
-                android:layout_marginTop="@dimen/margin_medium_1"/>
+                android:layout_marginTop="@dimen/margin_medium_1"
+                />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/etAddress"
@@ -234,7 +237,8 @@
                 style="@style/input_text"
                 android:padding="@dimen/margin_medium_1"
                 android:background="@drawable/rounded_corner_text_input"
-                android:layout_marginTop="@dimen/margin_small_1"/>
+                android:layout_marginTop="@dimen/margin_small_1"
+                android:gravity="top"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnCreateAccount"

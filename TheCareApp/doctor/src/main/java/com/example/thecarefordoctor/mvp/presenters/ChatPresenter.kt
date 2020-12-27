@@ -7,10 +7,11 @@ import com.example.thecarefordoctor.mvp.views.ChatView
 
 interface ChatPresenter  :BasePresenter<ChatView> {
 
-    fun onUiReady(consultationId : String, lifecycleOwner: LifecycleOwner)
+    fun onUiReady(consultationId : String,doctorId: String, lifecycleOwner: LifecycleOwner)
     fun onTapQuestions()
     fun onTapPrescriptions()
     fun onTapCaseSummary()
     fun onTapSendMessage(message: String)
     fun onTapSendImage(image : Bitmap)
+    fun onTapPatientInfo()
 }

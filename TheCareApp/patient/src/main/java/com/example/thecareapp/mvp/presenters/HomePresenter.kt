@@ -12,5 +12,4 @@ import com.example.thecareapp.mvp.views.HomeView
 interface HomePresenter : BasePresenter<HomeView>, SpecialityItemDelegate, ConsultationResponseDelegate, RecentDoctorDelegate {
 
     fun onUiReady(patientId: String, lifecycleOwner: LifecycleOwner)
-    fun onObserveConsultationResponse(lifecycleOwner: LifecycleOwner)
 }

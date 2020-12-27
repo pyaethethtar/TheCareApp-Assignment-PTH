@@ -6,7 +6,7 @@
 
     <string name="bottom_navi_specialities">အမျိုးအစား</string>
     <string name="bottom_navi_consultations">ချိန်းဆိုမှုများ</string>
-    <string name="bottom_navi_profile">မိမိအ‌ကြောင်း</string>
+    <string name="bottom_navi_profile">ပရိုဖိုင် </string>
     <string name="tv_speciality">ဦးနှောက်နှင့် အာရုံကြော ဆိုင်ရာ</string>
     <string name="tv_doctor_name">ပါမောက္ခဦးအောင်ဝင်း</string>
     <string name="tv_dob">မွေးနေ့ </string>
@@ -55,6 +55,8 @@
     <string name="btn_postpone">"အချိန်ရွေးမည်"</string>
     <string name="btn_accept">"လက်ခံမည် "</string>
     <string name="btn_send_message">စာပို့မည်</string>
+    <string name="lbl_patient_info">လူနာအချက်အလက်</string>
+    <string name="hint_message">ရေးသားပါ</string>
 
     <string name="lbl_the_caremm">The CareMM</string>
     <string name="lbl_enter_email_or_phone">Enter your Email or Phone Number</string>
@@ -75,14 +77,68 @@
     <string name="lbl_name">"အမည် "</string>
     <string name="lbl_phone">ဖုန်းနံပါတ်</string>
     <string name="lbl_gender">အမျိုးသား/အမျိုးသမီး</string>
-    <string name="lbl_man">"အမျိုးသား "</string>
-    <string name="lbl_woman">"အမျိုးသမီး "</string>
+    <string name="lbl_male">"အမျိုးသား "</string>
+    <string name="lbl_female">"အမျိုးသမီး "</string>
     <string name="lbl_speciality">"အထူးကု "</string>
     <string name="lbl_experience">"လုပ်သက် "</string>
     <string name="lbl_certificates">"ရရှိထားသောဘွဲ့များ "</string>
     <string name="lbl_brief">"ကိုယ်ရေးအကျဥ်းချုပ် "</string>
-    <string name="lbl_address">"လိပ်စာအပြည့်အစုံ "</string>
+    <string name="lbl_full_address">"လိပ်စာအပြည့်အစုံ "</string>
     <string name="btn_create_account">Create Account</string>
+    <string name="btn_see_more">ထပ်ကြည့်မည်  &gt;&gt;></string>
+    <string name="lbl_questions">"မေးခွန်းများ "</string>
+    <string name="btn_checkout_prescription">"ဆေးညွှန်းမှာယူမည် "</string>
+    <string name="lbl_prescription">"ဆေးညွှန်း "</string>
+    <string name="lbl_patient_infos">"လူနာအချက်အလက်များ "</string>
+    <string name="lbl_address">"လိပ်စာ "</string>
+    <string name="lbl_choose_address">"လိပ်စာရွေးချယ်ပါ "</string>
+    <string name="lbl_new_address">"လိပ်စာအသစ် "</string>
+    <string name="lbl_division">တိုင်း/ပြည်နယ်</string>
+    <string name="lbl_township">"မြို့နယ် "</string>
+    <string name="btn_checkout">"မှာယူမည် "</string>
+    <string name="lbl_sub_total">Subtotal</string>
+    <string name="lbl_delivery_fee">Delivery Fee</string>
+    <string name="tv_address">No.(117-119),Room(4D),Golden Gate Tower, Upper Pazundaung Road, Yangon, Myanmar.</string>
+    <string name="lbl_checkout_description">ငွေပေးချေမှု အတည်ပြုပြီး နောက်တစ်ရက်မှ စတင်၍ ဆေး များကို လိုက်လံပို့ဆောင်မည် ဖြစ်ပါသည် ။</string>
+    <string name="btn_pay">"ငွေပေးချေမည် "</string>
+    <string name="lbl_consultations_history">"ချိန်းဆိုမှုမှတ်တမ်းများ "</string>
+    <string name="btn_sign_out"><u>အကောင့်မှထွက်မည်</u></string>
+    <string name="btn_change_pw"><u>လျို့ဝှက်နံပါတ်ပြောင်းလဲမည်</u></string>
+    <string name="title_filling_profile">ပရိုဖိုင် ဖြည့်သွင်းမည်</string>
+    <string name="btn_post_image">"ပုံတင်မည် "</string>
+    <string name="lbl_a">A</string>
+    <string name="lbl_b">B</string>
+    <string name="lbl_ab">AB</string>
+    <string name="lbl_o">O</string>
+    <string name="btn_save">"သိမ်းမည် "</string>
+    <string name="dialog_filling_profile">သင့်ပရိုဖိုင်တွင် အချက်အလက်များ မဖြည့်သွင်းရသေးပါ</string>
+    <string name="btn_fill">"ဖြည့်မည် "</string>
+    <string name="btn_close">"ပိတ်မည် "</string>
+    <string name="dialog_postpone">ဆွေးနွေးမည့် အချိန်ရွေးမည်</string>
+    <string name="btn_choose">"ရွေးမည် "</string>
+    <string name="lbl_consultaion_date">"ဆွေးနွေးခဲ့သည့်နေ့စွဲ "</string>
+    <string name="btn_finish_consultation">ဆေးညွှန်းပြီးဆွေမည်းနွေးမှုကိုပြီးဆုံး</string>
+    <string name="btn_find">ရှာမည်</string>
+    <string name="lbl_count">အရေအတွက်</string>
+    <string name="lbl_taking_days">"သောက်ရမည့်ရက် "</string>
+    <string name="tv_tablets">tab</string>
+    <string name="lbl_taking_times">"အကြိမ်အရေအတွက် "</string>
+    <string name="lbl_morning">မနက်</string>
+    <string name="lbl_lunch">နေ့ </string>
+    <string name="lbl_night">ည </string>
+    <string name="lbl_to_medicine">"ဆေးကို "</string>
+    <string name="lbl_before">အစာမစားမှီသောက်ရန်</string>
+    <string name="lbl_after">အစာစားပြီးသောက်ရန်</string>
+    <string name="btn_add">"ထည့်မည် "</string>
+    <string name="consultation_note">ဆေးကုသမှုမှတ်တမ်း</string>
+    <string name="hint_consultation_note">"ဆေးကုသမှုမှတ်တမ်း ရေးသားရန် "</string>
+    <string name="tv_brief">ပါမောက္ခဦးအောင်ဝင်းသည် 2000 ပြည့်နှစ်တွင် ပါမောက္ခဘွဲ့ကို  ရရှိခဲ့ပြီး လက်ရှိတွင်  Bumrungrad International ospital တွင်  ဦးနှောက်  နှင့် အာရုံကြောဆိုင်ရာဌာန တွင်တာဝန်ထိန်းဆောင်လျက်ရှိပါသည်။</string>
+    <string name="title_edit_profile">"ပရိုဖိုင်ပြုပြင်မည် "</string>
+    <string name="tv_doctor_question">သွားတိုက်တဲ့အခါ (ဒါမှမဟုတ်) ကြိုးဖြင့် သွားသန့်ရှင်း ရေးလုပ်တဲ့အခါ သွေးထွက်တာမျိုးရှိလား?</string>
+    <string name="lbl_amount">"ပမာဏ "</string>
+    <string name="lbl_days">"ကြာချိန် "</string>
+    <string name="lbl_repeat">Repeat</string>
+    <string name="lbl_note">"မှတ်ချက် "</string>
 
     <string-array name="speciality_list">
         <item>သွားဖက်ဆိုင်ရာ </item>
@@ -193,6 +249,45 @@
         <item>B</item>
         <item>O</item>
         <item>AB</item>
+    </string-array>
+
+    <string-array name="division_list">
+        <item>Yangon</item>
+        <item>Ayeyawady</item>
+        <item>Bago</item>
+        <item>Sagaing</item>
+        <item>Mandalay</item>
+        <item>Magway</item>
+        <item>Tanintharye</item>
+        <item>Kachin</item>
+        <item>Kayah</item>
+        <item>Kayin</item>
+        <item>Mon</item>
+        <item>Chinn</item>
+        <item>Rakhine</item>
+        <item>Shann</item>
+    </string-array>
+
+    <string-array name="township_list">
+        <item>Ahlone</item>
+        <item>Bahan</item>
+        <item>Hlaing</item>
+        <item>Kamayut</item>
+        <item>Tarmwe</item>
+        <item>Pazundaung</item>
+        <item>Sanchaung</item>
+        <item>Insein</item>
+        <item>Mayangone</item>
+        <item>Kyimyindaing</item>
+        <item>Lathar</item>
+        <item>Lanmadaw</item>
+        <item>Dagon</item>
+    </string-array>
+
+    <string-array name="taking_days_list">
+        <item>Day</item>
+        <item>Week</item>
+        <item>Month</item>
     </string-array>
 
 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/margin_medium_3"
+        android:paddingEnd="@dimen/margin_medium_3"
+        android:paddingTop="@dimen/margin_large"
+        android:paddingBottom="@dimen/margin_large"
+        android:background="@color/colorWhite">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblConsultationHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_case_summary"
+            style="@style/text_bg"
+            android:background="@drawable/lable_orange"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_patient_info"
+            style="@style/text_regular_black"
+            app:fontFamily="@font/poppins_semibold"
+            android:layout_marginTop="@dimen/margin_medium_1"/>
+
+        <include
+            android:id="@+id/vpGeneralCasesummary"
+            layout="@layout/viewpod_general_case_summary"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_title_special_questions"
+            style="@style/text_regular_black"
+            app:fontFamily="@font/poppins_semibold"
+            android:layout_marginTop="@dimen/margin_medium_1"/>
+
+        <include
+            android:id="@+id/vpSpecialCaseSummary"
+            layout="@layout/viewpod_special_case_summary"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnClose"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_button"
+            android:text="@string/btn_close"
+            android:textSize="@dimen/text_regular_2x_2"
+            style="@style/text_bg.blue.button"
+            android:background="@drawable/rounded_corner_blue"
+            android:layout_marginTop="@dimen/margin_xxlarge"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

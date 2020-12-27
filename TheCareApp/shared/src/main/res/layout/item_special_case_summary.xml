@@ -10,6 +10,7 @@
     <org.mmtextview.components.MMTextView
         android:id="@+id/tvSpecialQuestion"
         style="@style/text_regular.blue"
+        android:textSize="@dimen/text_regular_2x"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_large"
@@ -18,11 +19,12 @@
     <org.mmtextview.components.MMTextView
         android:id="@+id/tvSpecialAnswer"
         style="@style/text_regular"
+        android:textSize="@dimen/text_regular_2x"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_medium_2"
         android:text="@string/lbl_no"
-        android:drawableStart="@drawable/ic_forward_arrow_blue_24"
+        android:drawableStart="@drawable/ic_circle_blue_24"
         android:drawablePadding="@dimen/margin_medium_2"/>
 
 </LinearLayout>

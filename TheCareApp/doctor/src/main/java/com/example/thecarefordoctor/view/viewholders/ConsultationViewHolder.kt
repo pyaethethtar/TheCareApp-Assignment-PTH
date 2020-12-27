@@ -1,5 +1,6 @@
 package com.example.thecarefordoctor.view.viewholders
 
+import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import com.example.shared.data.vos.ConsultationVO

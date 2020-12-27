@@ -26,7 +26,7 @@ interface ConsultationDao {
     fun addAllConsultations(consultations : List<ConsultationVO>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addNewConsultation(consultation: ConsultationVO)
+    fun addConsultation(consultation: ConsultationVO)
 
 
 //    @NotNull

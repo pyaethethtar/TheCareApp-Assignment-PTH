@@ -37,5 +37,8 @@ data class ConsultationVO (
     @get:PropertyName("consultation_date") @set:PropertyName("consultation_date")
     var consultationDate  :String = "",
 
-    var status : String = ""
+    var status : String = "",
+
+    @get:PropertyName("consultation_note") @set:PropertyName("consultation_note")
+    var consultationNote  :String ?= ""
 )

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/margin_medium_2"
+    android:paddingEnd="@dimen/margin_medium_2"
+    android:paddingTop="@dimen/margin_large"
+    android:paddingBottom="@dimen/margin_large"
+    android:background="@drawable/rounded_corner_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblPrescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_prescription"
+            style="@style/text_bg"
+            android:background="@drawable/lable_blue"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblPatientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_patient_name"
+            android:fontFamily="@font/poppins_medium"
+            style="@style/text_regular_gray"
+            android:layout_below="@id/lblPrescription"
+            android:layout_marginTop="@dimen/margin_medium_1"
+            android:layout_marginStart="@dimen/margin_medium_1"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblFullColumn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_full_column"
+            android:fontFamily="@font/poppins_medium"
+            style="@style/text_regular_gray"
+            android:layout_toEndOf="@id/lblPatientName"
+            android:layout_alignStart="@id/lblFullColumn2"
+            android:layout_alignTop="@id/lblPatientName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPatientName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_patient_name"
+            android:fontFamily="@font/poppins_medium"
+            style="@style/text_regular_gray"
+            android:layout_toEndOf="@id/lblFullColumn"
+            android:layout_alignTop="@id/lblPatientName"
+            android:layout_marginStart="@dimen/margin_medium_3"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblConsultationDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_consultaion_date"
+            android:fontFamily="@font/poppins_medium"
+            style="@style/text_regular_gray"
+            android:layout_below="@id/lblPatientName"
+            android:layout_alignStart="@id/lblPatientName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblFullColumn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_full_column"
+            android:fontFamily="@font/poppins_medium"
+            style="@style/text_regular_gray"
+            android:layout_toEndOf="@id/lblConsultationDate"
+            android:layout_alignTop="@id/lblConsultationDate"
+            android:layout_marginStart="@dimen/margin_medium_3"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvConsultationDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_patient_name"
+            android:fontFamily="@font/poppins_medium"
+            style="@style/text_regular_gray"
+            android:layout_alignTop="@id/lblConsultationDate"
+            android:layout_alignStart="@id/tvPatientName"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPrescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lblConsultationDate"
+            android:layout_alignStart="@id/lblPatientName"
+            android:layout_marginTop="@dimen/margin_large"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnClose"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_button"
+            android:text="@string/btn_close"
+            android:textSize="@dimen/text_regular_2x_2"
+            style="@style/text_bg.blue.button"
+            android:background="@drawable/rounded_corner_blue"
+            android:layout_marginTop="@dimen/margin_xxlarge"
+            android:layout_below="@id/rvPrescription"/>
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>

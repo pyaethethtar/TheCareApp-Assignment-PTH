@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.thecareapp.view.viewpods.AddressViewpod
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/margin_medium_1"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_address"
+            android:paddingStart="@dimen/margin_medium_2"
+            style="@style/text_bg"
+            android:background="@color/primaryDarkColor"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblChooseAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_choose_address"
+            android:textSize="@dimen/text_regular_2x"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/sending_time_color"
+            android:layout_below="@id/lblAddress"
+            android:padding="@dimen/margin_medium_1"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/margin_medium_1"
+            android:paddingEnd="@dimen/margin_medium_1"
+            android:layout_below="@id/lblChooseAddress"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnNewAddress"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_xxlarge"
+            android:text="@string/lbl_new_address"
+            android:textSize="@dimen/text_regular_2x"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/sending_time_color"
+            android:gravity="center"
+            android:drawableStart="@drawable/ic_baseline_add_circle_outline_24"
+            android:paddingStart="@dimen/padding_start_facebook"
+            android:paddingEnd="@dimen/padding_start_facebook"
+            android:layout_below="@id/rvAddress"
+            android:layout_marginStart="@dimen/margin_medium_1"
+            android:layout_marginEnd="@dimen/margin_medium_1"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:background="@drawable/rounded_corner_border"/>
+    </RelativeLayout>
+
+</com.example.thecareapp.view.viewpods.AddressViewpod>

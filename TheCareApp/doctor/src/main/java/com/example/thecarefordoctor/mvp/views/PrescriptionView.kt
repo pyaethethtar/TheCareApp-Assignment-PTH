@@ -6,5 +6,6 @@ import com.example.shared.mvp.BaseView
 interface PrescriptionView : BaseView {
 
     fun displayMedicines(medicines : List<MedicationVO>)
-    fun displayPrescriptionDialog(medicine : String)
+    fun displayMedicationDialog(medicine : String, price: Int)
+    fun navigateToChatScreen()
 }

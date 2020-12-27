@@ -2,12 +2,11 @@ package com.example.thecarefordoctor.activities
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
-import com.example.shared.BaseActivity
+import com.example.shared.activities.BaseActivity
 import com.example.thecarefordoctor.R
 import com.example.thecarefordoctor.fragments.RegisterPhoneFragment
 import com.example.thecarefordoctor.mvp.presenters.RegisterPresenter

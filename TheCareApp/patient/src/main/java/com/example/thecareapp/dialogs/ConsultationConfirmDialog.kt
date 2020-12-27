@@ -2,10 +2,9 @@ package com.example.thecareapp.dialogs
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Point
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.thecareapp.R
@@ -79,5 +78,22 @@ class ConsultationConfirmDialog : DialogFragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mContext = context
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val window: Window?= dialog!!.window
+        val size = Point()
+
+        window?.let {
+            val display: Display = it.getWindowManager().getDefaultDisplay()
+            display.getSize(size)
+
+            val width: Int = size.x
+
+            it.setLayout((width * 0.9).toInt(), WindowManager.LayoutParams.WRAP_CONTENT)
+            it.setGravity(Gravity.CENTER)
+        }
     }
 }

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:layout_marginTop="@dimen/margin_medium_3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit_24"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginBottom="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:layout_alignParentEnd="true"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnBack"
+                android:layout_width="@dimen/margin_xxlarge"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_back_arrow_black_24"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginBottom="@dimen/margin_medium_2"
+                />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:title="@string/bottom_navi_profile"
+                style="@style/text_title"
+                android:layout_toEndOf="@id/btnEdit"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_small"
+                android:background="@color/view_color"
+                android:layout_below="@id/toolbar"/>
+
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/margin_medium_2"
+            android:paddingEnd="@dimen/margin_medium_2"
+            android:paddingTop="@dimen/margin_xlarge"
+            android:paddingBottom="@dimen/margin_xxlarge">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDoctor"
+                android:layout_width="@dimen/width_cardview_recent_doctor"
+                android:layout_height="@dimen/width_cardview_recent_doctor"
+                android:src="@drawable/photo_1438761681033_6461_ffad_8_d_80"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDoctorName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Myat Yadanar"
+                android:textSize="@dimen/text_regular_3x"
+                android:textColor="@color/sending_time_color"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_alignStart="@id/tvSpeciality"
+                android:layout_above="@id/tvDoctorPhone"
+                android:layout_marginBottom="@dimen/margin_medium"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDoctorPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="09237500130"
+                style="@style/text_regular_gray"
+                android:layout_alignStart="@id/tvSpeciality"
+                android:layout_above="@id/tvSpeciality"
+                android:layout_marginBottom="@dimen/margin_medium"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSpeciality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_speciality"
+                style="@style/text_regular_gray"
+                android:layout_toEndOf="@id/ivDoctor"
+                android:layout_alignBottom="@id/ivDoctor"
+                android:layout_marginStart="@dimen/margin_medium_2"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblDob"
+                android:layout_width="@dimen/width_spinner"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_dob"
+                style="@style/text_regular_gray"
+                android:layout_below="@id/ivDoctor"
+                android:layout_marginTop="@dimen/margin_xlarge"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblFullColum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_full_column"
+                style="@style/text_regular_gray"
+                android:layout_toEndOf="@id/lblDob"
+                android:layout_alignTop="@id/lblDob"
+                android:layout_marginStart="@dimen/margin_medium"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="30 Dec 1980"
+                style="@style/text_regular_black"
+                android:layout_toEndOf="@id/lblFullColum"
+                android:layout_alignTop="@id/lblDob"
+                android:paddingStart="@dimen/margin_medium_2"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblExperience"
+                android:layout_width="@dimen/width_spinner"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_experience"
+                style="@style/text_regular_gray"
+                android:layout_below="@id/lblDob"
+                android:layout_marginTop="@dimen/margin_medium"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblFullColum3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_full_column"
+                style="@style/text_regular_gray"
+                android:layout_toEndOf="@id/lblExperience"
+                android:layout_alignTop="@id/lblExperience"
+                android:layout_marginStart="@dimen/margin_medium"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvExperience"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="12 yrs"
+                style="@style/text_regular_black"
+                android:layout_toEndOf="@id/lblFullColum3"
+                android:layout_alignTop="@id/lblExperience"
+                android:paddingStart="@dimen/margin_medium_2"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblGender"
+                android:layout_width="@dimen/width_spinner"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_gender"
+                style="@style/text_regular_gray"
+                android:layout_below="@id/lblExperience"
+                android:layout_marginTop="@dimen/margin_medium"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblFullColum4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_full_column"
+                style="@style/text_regular_gray"
+                android:layout_toEndOf="@id/lblGender"
+                android:layout_alignTop="@id/lblGender"
+                android:layout_marginStart="@dimen/margin_medium"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="အမျိုးသား"
+                style="@style/text_regular_black"
+                android:layout_toEndOf="@id/lblFullColum4"
+                android:layout_alignTop="@id/lblGender"
+                android:layout_marginStart="@dimen/margin_medium_2"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblAddress"
+                android:layout_width="@dimen/width_spinner"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_address"
+                style="@style/text_regular_gray"
+                android:layout_below="@id/lblGender"
+                android:layout_marginTop="@dimen/margin_medium"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblFullColum5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_full_column"
+                style="@style/text_regular_gray"
+                android:layout_toEndOf="@id/lblAddress"
+                android:layout_alignTop="@id/lblAddress"
+                android:layout_marginStart="@dimen/margin_medium"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_address"
+                style="@style/text_regular_black"
+                android:lineSpacingMultiplier="1"
+                android:layout_below="@id/lblAddress"
+                android:layout_marginTop="@dimen/margin_medium"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblCertificates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_certificates"
+                style="@style/text_bg.blue"
+                android:layout_below="@id/tvAddress"
+                android:layout_marginTop="@dimen/margin_xlarge"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCertificates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_address"
+                style="@style/text_regular_gray"
+                android:lineSpacingMultiplier="0.9"
+                android:layout_below="@id/lblCertificates"
+                android:layout_marginTop="@dimen/margin_medium_3"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/lblBrief"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lbl_brief"
+                style="@style/text_bg.blue"
+                android:layout_below="@id/tvCertificates"
+                android:layout_marginTop="@dimen/margin_xlarge"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBrief"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_brief"
+                style="@style/text_regular_gray"
+                android:layout_below="@id/lblBrief"
+                android:layout_marginTop="@dimen/margin_medium_3"
+                android:layout_marginBottom="@dimen/height_edit_text"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnSignOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_sign_out"
+                android:textSize="@dimen/text_small"
+                style="@style/text_regular_black"
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btnChangePw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_change_pw"
+                style="@style/text_regular_black"
+                android:textSize="@dimen/text_small"
+                android:textStyle="bold"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

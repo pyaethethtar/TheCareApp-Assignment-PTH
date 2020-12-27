@@ -64,7 +64,6 @@ class HomeFragment : BaseFragment(), HomeView {
         setUpPresenterAndViewpod()
         setUpRecyclerview()
         mPresenter.onUiReady(mPatientId, this)
-        mPresenter.onObserveConsultationResponse(this)
 
 
     }
@@ -112,8 +111,8 @@ class HomeFragment : BaseFragment(), HomeView {
         startActivity(CaseSummaryActivity.newIntent(mPatientId, speciality, mContext))
     }
 
-    override fun navigateToChatScreen() {
-        startActivity(ChatActivity.newIntent(mContext))
+    override fun navigateToChatScreen(consultationId: String) {
+        startActivity(ChatActivity.newIntent(mPatientId, consultationId,  mContext))
     }
 
     override fun displayEmptyRecentDoctor() {

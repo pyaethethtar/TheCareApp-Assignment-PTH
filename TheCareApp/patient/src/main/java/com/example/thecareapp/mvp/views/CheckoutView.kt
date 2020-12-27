@@ -7,4 +7,6 @@ interface CheckoutView : BaseView {
 
     fun displayCheckoutInfo(checkout: CheckoutVO)
     fun displayCheckoutDialog()
+    fun displayAddressViewpod()
+    fun displayNewAddressViewpod()
 }

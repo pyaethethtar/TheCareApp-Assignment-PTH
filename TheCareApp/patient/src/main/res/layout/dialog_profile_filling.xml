@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    app:cardCornerRadius="@dimen/margin_medium_3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/margin_medium_1"
+        android:paddingBottom="@dimen/margin_xlarge"
+        android:paddingStart="@dimen/margin_medium_3"
+        android:paddingEnd="@dimen/margin_medium_3">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_small"
+            android:src="@drawable/ic_round_close_24"
+            android:layout_gravity="end"
+            android:background="@drawable/circle_gray"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/profile_information"
+            android:layout_gravity="center_horizontal"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_filling_profile"
+            android:textSize="@dimen/text_regular_2x"
+            android:textColor="@color/sending_time_color"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginTop="@dimen/margin_medium_2"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFill"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_button"
+            android:text="@string/btn_fill"
+            android:textSize="@dimen/text_regular_2x_2"
+            style="@style/text_bg.blue.button"
+            android:background="@drawable/rounded_corner_blue"
+            android:layout_marginTop="@dimen/margin_large"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

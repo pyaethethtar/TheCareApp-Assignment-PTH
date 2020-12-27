@@ -6,10 +6,12 @@ import com.example.shared.data.vos.*
 import com.example.shared.utils.*
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.MetadataChanges
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -34,13 +36,6 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
             }.addOnFailureListener {
                 Log.d("Failure", "Failed to add doctor")
             }
-//        uploadImage(image, DIRECTORY_DOCTOR_PROFILE_IMAGES, onComplete = {imageUrl->
-//            doctorVO.doctorProfileImage = imageUrl
-//            val doctorMap = doctorVO.toDoctorMap()
-//            firestoreDb.collection(GET_DOCTORS).document(doctorVO.doctorId.toString()).set(doctorMap)
-//                .addOnSuccessListener { Log.d("Success", "Successfully added to doctors") }
-//                .addOnFailureListener { Log.d("Failure", "Failed to add doctor") }
-//        })
     }
 
     override fun addNewPatient(
@@ -59,18 +54,48 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
             Log.d("Failure", "Failed to add patient")
             onFailure(it.message ?: EM_CHECK_INTERNET_CONNECTION)
         }
-//        uploadImage(image, DIRECTORY_PATIENT_PROFILE_IMAGES, onComplete = {imageUrl->
-//            patientVO.patientProfileImage = imageUrl
-//            val patientMap = patientVO.toPatientMap()
-//            val patientDoc = firestoreDb.collection(GET_PATIENTS).document(patientVO.patientId)
-//
-//            patientDoc.set(patientMap).addOnSuccessListener {
-//                patientDoc.collection(GET_CASE_SUMMARY)
-//                Log.d("Success", "Successfully added to patients")
-//            }.addOnFailureListener {
-//                Log.d("Failure", "Failed to add patient")
-//            }
-//        })
+    }
+
+    override fun updateDoctorInfo(
+        doctorVO: DoctorVO,
+        image: Bitmap,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+
+        uploadImage(image, DIRECTORY_DOCTOR_PROFILE_IMAGES, onComplete = {imageUrl->
+            doctorVO.doctorProfileImage = imageUrl
+            val doctorMap = doctorVO.toDoctorMap()
+            firestoreDb.collection(GET_DOCTORS).document(doctorVO.doctorId).update(doctorMap)
+                .addOnSuccessListener {onSuccess()}
+                .addOnFailureListener {onFailure(it.message?: EM_CHECK_INTERNET_CONNECTION)}
+        })
+    }
+
+    override fun updatePatientInfo(
+        patientVO: PatientVO,
+        image: Bitmap,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        uploadImage(image, DIRECTORY_PATIENT_PROFILE_IMAGES, onComplete = {imageUrl->
+            patientVO.patientProfileImage = imageUrl
+            val patientMap = patientVO.toPatientMap()
+            val patientDoc = firestoreDb.collection(GET_PATIENTS).document(patientVO.patientId)
+
+            patientDoc.update(patientMap as Map<String, Any>)
+                .addOnSuccessListener {
+                    patientVO.patientCaseSummary?.let {
+                        for (casesummary in it){
+                            patientDoc.collection(GET_CASE_SUMMARY).document().set(casesummary.toCaseSummaryMap())
+                            if(casesummary==it.last())  onSuccess()
+                        }
+                    }
+                }
+                .addOnFailureListener {
+                    onFailure(it.message?: EM_CHECK_INTERNET_CONNECTION)
+                }
+        })
     }
 
     override fun getDoctorInfo(
@@ -215,7 +240,7 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
     ) {
         val collectionRef = firestoreDb.collection(GET_CONSULTATION_REQUESTS)
 
-        collectionRef.whereEqualTo("status", REQUEST_STATUS_REQUEST).addSnapshotListener { value, error ->
+        collectionRef.addSnapshotListener { value, error ->
             error?.let {
                 onFailure(it.message ?: EM_CHECK_INTERNET_CONNECTION)
             }.run {
@@ -242,15 +267,88 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
         }
     }
 
+    override fun getNewConsultation(
+        onSuccess: (List<ConsultationVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        val consultationRef = firestoreDb.collection(GET_CONSULTATIONS)
+        val consultationQuery = consultationRef.whereEqualTo("status", CONSULTATION_STATUS_START)
+
+        consultationQuery.addSnapshotListener { value, error ->
+            error?.let {
+                onFailure(it.message ?: EM_CHECK_INTERNET_CONNECTION)
+            }.run {
+                val consultationList = arrayListOf<ConsultationVO>()
+                val documents = value?.documents ?: arrayListOf()
+                for (document in documents){
+                    val consultationVO = document.data?.toConsultationVO() ?: ConsultationVO()
+
+                    val caseSummaryRef = consultationRef.document(document.id)
+                        .collection(GET_CASE_SUMMARY)
+                    val chatRef = consultationRef.document(document.id)
+                        .collection(GET_CHATS)
+                    val prescriptionRef = consultationRef.document(document.id)
+                        .collection(GET_PRESCRIPTIONS)
+
+                    var isCompleteCaseSummary = false
+                    var isCompleteChats = false
+                    var isCompletePrescription = false
+
+                    fetchCaseSummarySubCollection(caseSummaryRef, onSuccess = {
+                        consultationVO.caseSummary = it
+                        isCompleteCaseSummary=true
+                    }, onFailure = {
+                        onFailure(it)
+                    })
+
+                    fetchChatSubCollection(chatRef, onSuccess = {
+                        consultationVO.chats = it
+                        isCompleteChats = true
+                    }, onFailure = {
+                        onFailure(it)
+                    })
+
+                    fetchMedicationSubcollection(prescriptionRef, onSuccess = {
+                        consultationVO.prescriptions = it
+                        isCompletePrescription = true
+
+                        consultationList.add(consultationVO)
+                        if (document==documents.last() && isCompleteCaseSummary &&
+                            isCompleteChats && isCompletePrescription){
+                            onSuccess(consultationList)
+                        }
+                    }, onFailure = {
+                        onFailure(it)
+                    })
+                }
+            }
+        }
+    }
+
     override fun getChatMessages(
         consultationId: String,
-        onSuccess: (List<ChatVO>) -> Unit,
+        onSuccess: (ArrayList<ChatVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
         val chatRef = firestoreDb.collection(GET_CONSULTATIONS)
             .document(consultationId).collection(GET_CHATS)
 
         fetchChatSubCollection(chatRef, onSuccess = {
+            onSuccess(it)
+        }, onFailure = {
+            onFailure(it)
+        })
+    }
+
+    override fun getMedicationList(
+        consultationId: String,
+        onSuccess: (ArrayList<MedicationVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        val prescriptionRef = firestoreDb.collection(GET_CONSULTATIONS)
+            .document(consultationId).collection(GET_PRESCRIPTIONS)
+
+        fetchMedicationSubcollection(prescriptionRef, onSuccess={
             onSuccess(it)
         }, onFailure = {
             onFailure(it)
@@ -315,6 +413,60 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
         }
     }
 
+    override fun getConsultationById(
+        consultationId: String,
+        onSuccess: (ConsultationVO) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        val consultationDocumentRef = firestoreDb.collection(GET_CONSULTATIONS).document(consultationId)
+
+
+        consultationDocumentRef.addSnapshotListener { value, error ->
+            error?.let {
+                onFailure(it.message ?: EM_CHECK_INTERNET_CONNECTION)
+            }.run {
+                val data = value?.data
+
+                val consultationVO = data?.toConsultationVO() ?: ConsultationVO()
+
+                val caseSummaryRef = consultationDocumentRef.collection(GET_CASE_SUMMARY)
+                val chatRef = consultationDocumentRef.collection(GET_CHATS)
+                val prescriptionRef = consultationDocumentRef.collection(GET_PRESCRIPTIONS)
+
+                var isCompleteCaseSummary = false
+                var isCompleteChats = false
+                var isCompletePrescription = false
+
+                fetchCaseSummarySubCollection(caseSummaryRef, onSuccess = {
+                    consultationVO.caseSummary = it
+                    isCompleteCaseSummary=true
+                }, onFailure = {
+                    onFailure(it)
+                })
+
+                fetchChatSubCollection(chatRef, onSuccess = {
+                    consultationVO.chats = it
+                    isCompleteChats = true
+                }, onFailure = {
+                    onFailure(it)
+                })
+
+                fetchMedicationSubcollection(prescriptionRef, onSuccess = {
+                    consultationVO.prescriptions = it
+                    isCompletePrescription = true
+
+                    if (isCompleteCaseSummary && isCompleteChats && isCompletePrescription){
+                        onSuccess(consultationVO)
+                    }
+                }, onFailure = {
+                    onFailure(it)
+                })
+
+
+            }
+        }
+    }
+
     override fun getCheckoutInfo(
         checkoutId: String,
         onSuccess: (CheckoutVO) -> Unit,
@@ -372,12 +524,9 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit
     ) {
-        val documentRef = if(consultationRequestVO.requestId=="") firestoreDb.collection(GET_CONSULTATION_REQUESTS).document()
-        else firestoreDb.collection(GET_CONSULTATION_REQUESTS).document(consultationRequestVO.requestId)
-
+        val documentRef = firestoreDb.collection(GET_CONSULTATION_REQUESTS).document()
 
         consultationRequestVO.requestId = documentRef.id
-        Log.d("TheCareMM", consultationRequestVO.requestId)
         val consultationRequestMap = consultationRequestVO.toConsultationRequestMap()
 
         documentRef.set(consultationRequestMap).addOnSuccessListener {
@@ -393,6 +542,54 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
         }
     }
 
+    override fun updateStatusConsultationRequest(
+        requestId: String,
+        status: String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        firestoreDb.collection(GET_CONSULTATION_REQUESTS).document(requestId).update("status", status)
+            .addOnSuccessListener {
+                onSuccess()
+            }.addOnFailureListener {
+                onFailure(it.message ?: EM_CHECK_INTERNET_CONNECTION)
+            }
+    }
+
+    override fun addMedicationListToConsultation(
+        consultationId: String,
+        medications: ArrayList<MedicationVO>
+    ) {
+        val prescriptionRef = firestoreDb.collection(GET_CONSULTATIONS)
+            .document(consultationId).collection(GET_PRESCRIPTIONS)
+
+        for (medication in medications){
+           prescriptionRef.document().set(medication.toMedicationMap())
+//                .addOnSuccessListener { Log.d("TheCareMM", consultationId) }
+//                .addOnFailureListener { Log.d("TheCareMM", it.message ?: "medicationError") }
+        }
+    }
+
+    override fun addNoteToConsultation(
+        consultationId: String,
+        note: String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        firestoreDb.collection(GET_CONSULTATIONS).document(consultationId).update("consultation_note", note)
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onFailure(it.message?: EM_CHECK_INTERNET_CONNECTION) }
+    }
+
+    override fun finishConsultation(
+        consultationId: String,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        firestoreDb.collection(GET_CONSULTATIONS).document(consultationId).update("status", CONSULTATION_STATUS_END)
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onFailure(it.message ?: EM_CHECK_INTERNET_CONNECTION) }
+    }
 
 
     override fun addChatTextMessage(
@@ -402,6 +599,8 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
         val chatSubCollectionRef = firestoreDb.collection(GET_CONSULTATIONS)
             .document(consultationId).collection(GET_CHATS)
         val chatVO = ChatVO()
+        chatVO.sendingDate = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(Date())
+        chatVO.sendingTime = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
 
         if (sender=="doctor"){
             chatVO.doctor = message
@@ -438,7 +637,7 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
 
     override fun addCheckout(
         checkoutVO: CheckoutVO,
-        onSuccess: () -> Unit,
+        onSuccess: (id: String) -> Unit,
         onFailure: (String) -> Unit
     ) {
         val checkoutDoc =  firestoreDb.collection(GET_CHECKOUTS).document()
@@ -449,12 +648,11 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
             checkoutVO.prescriptions?.let {
                 for (prescription in it){
                     val prescriptionMap = prescription.toMedicationMap()
-
                     checkoutDoc.collection(GET_PRESCRIPTIONS).document().set(prescriptionMap)
-                        .addOnSuccessListener { onSuccess() }
-                        .addOnFailureListener {
-                            onFailure(it.message ?: EM_CHECK_INTERNET_CONNECTION)
-                        }
+
+                    if (prescription==it.last()){
+                        onSuccess(checkoutDoc.id)
+                    }
                 }
             }
         }.addOnFailureListener {
@@ -463,9 +661,20 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
 
     }
 
+    override fun addAddressToCheckout(
+        checkoutId: String,
+        deliveryVO: DeliveryVO,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        firestoreDb.collection(GET_CHECKOUTS).document(checkoutId).update(deliveryVO.toDeliveryMap())
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener { onFailure(it.message?: EM_CHECK_INTERNET_CONNECTION) }
+    }
+
     override fun addNewConsultation(
         consultationVO: ConsultationVO,
-        onSuccess: () -> Unit,
+        onSuccess: (consultationId:String) -> Unit,
         onFailure: (String) -> Unit
     ) {
         val documentRef = firestoreDb.collection(GET_CONSULTATIONS).document()
@@ -479,7 +688,9 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
                     caseSummary.answer = cs.answer
                     documentRef.collection(GET_CASE_SUMMARY).document().set(caseSummary.toCaseSummaryMap())
                 }
-                onSuccess()
+                documentRef.collection(GET_CHATS)
+                documentRef.collection(GET_PRESCRIPTIONS)
+                onSuccess(documentRef.id)
             }.addOnFailureListener {
                 onFailure(it.message ?: EM_CHECK_INTERNET_CONNECTION)
             }
@@ -536,8 +747,8 @@ object CloudFirestoreDataAgentImpl : FirebaseApi {
         onSuccess: (ArrayList<MedicationVO>) -> Unit,
         onFailure: (String) -> Unit
     ){
+        val medicationList = arrayListOf<MedicationVO>()
         collectionRef.get().addOnSuccessListener {result->
-            val medicationList = arrayListOf<MedicationVO>()
             for (document in result){
                 val medicationVO = document.data.toMedicationVO()
                 medicationList.add(medicationVO)

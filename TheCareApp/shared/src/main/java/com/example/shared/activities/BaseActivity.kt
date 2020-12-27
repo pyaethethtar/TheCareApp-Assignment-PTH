@@ -1,4 +1,4 @@
-package com.example.shared
+package com.example.shared.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import com.example.shared.mvp.BaseView

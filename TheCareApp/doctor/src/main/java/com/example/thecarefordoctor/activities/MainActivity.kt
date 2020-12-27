@@ -2,34 +2,25 @@ package com.example.thecarefordoctor.activities
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
-import com.example.shared.BaseActivity
+import com.example.shared.activities.BaseActivity
+import com.example.shared.activities.PatientInfoDetailsActivity
 import com.example.shared.data.vos.ConsultationRequestVO
 import com.example.shared.data.vos.ConsultationVO
 import com.example.shared.data.vos.DoctorVO
-import com.example.shared.utils.DOCTOR_KEY
-import com.example.shared.utils.LOGIN_KEY
-import com.example.shared.utils.PATIENT_KEY
-import com.example.shared.utils.PREFERENCE_FILE_KEY
 import com.example.thecarefordoctor.R
 import com.example.thecarefordoctor.dialogs.ConsultationHistoryDialog
 import com.example.thecarefordoctor.dialogs.PostponeDialog
 import com.example.thecarefordoctor.dialogs.PrescriptionDialog
-import com.example.thecarefordoctor.mvp.presenters.LoginPresenter
 import com.example.thecarefordoctor.mvp.presenters.MainPresenter
-import com.example.thecarefordoctor.mvp.presenters.impls.LoginPresenterImpl
 import com.example.thecarefordoctor.mvp.presenters.impls.MainPresenterImpl
-import com.example.thecarefordoctor.mvp.views.LoginView
 import com.example.thecarefordoctor.mvp.views.MainView
 import com.example.thecarefordoctor.view.viewpods.ConsultationListViewpod
 import com.example.thecarefordoctor.view.viewpods.ConsultationRequestViewpod
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.*
 
 class MainActivity : BaseActivity(), MainView {
 
@@ -83,10 +74,12 @@ class MainActivity : BaseActivity(), MainView {
     }
 
     override fun displayNewRequests(consultationRequests: List<ConsultationRequestVO>) {
+        vpConsultationRequest.visibility = View.VISIBLE
         mRequestViewpod.displayRequests(consultationRequests)
     }
 
     override fun displayConsultationList(consultations: List<ConsultationVO>) {
+        vpConsultationList.visibility = View.VISIBLE
         mConsultatioListViewpod.displayConsultationList(consultations)
     }
 
@@ -98,32 +91,32 @@ class MainActivity : BaseActivity(), MainView {
         vpConsultationList.visibility = View.GONE
     }
 
-    override fun navigateToDoctorProfile(doctorVO: DoctorVO) {
-        startActivity(ProfileActivity.newIntent(this))
+    override fun navigateToDoctorProfile(doctorId: String) {
+        startActivity(ProfileActivity.newIntent(doctorId, this))
     }
 
     override fun navigateToPatientCaseSummary(consultationRequestVO: ConsultationRequestVO) {
-        startActivity(PatientInfoActivity.newIntent(this))
+        startActivity(Intent(this, PatientInfoDetailsActivity::class.java))
     }
 
-    override fun navigateToNotesScreen(consultationVO: ConsultationVO) {
-        startActivity(NoteActivity.newIntent(this))
+    override fun navigateToNotesScreen(consultationId: String) {
+        startActivity(NoteActivity.newIntent(consultationId, this))
     }
 
     override fun displayPostponeDialog() {
         PostponeDialog.newDialog().show(supportFragmentManager, PostponeDialog.POSTPONE_DIALOG)
     }
 
-    override fun displayPrescriptionDialog(consultationVO: ConsultationVO) {
-        PrescriptionDialog.newDialog().show(supportFragmentManager, PrescriptionDialog.PRESCRIPTION_DIALOG)
+    override fun displayPrescriptionDialog(consultationId: String) {
+        PrescriptionDialog.newDialog(consultationId).show(supportFragmentManager, PrescriptionDialog.PRESCRIPTION_DIALOG)
     }
 
-    override fun displayConsultationHistoryDialog(consultationVO: ConsultationVO) {
-        ConsultationHistoryDialog.newDialog().show(supportFragmentManager, ConsultationHistoryDialog.CONSULTATION_HISTORY_DIALOG)
+    override fun displayConsultationHistoryDialog(consultationId: String) {
+        ConsultationHistoryDialog.newDialog(consultationId).show(supportFragmentManager, ConsultationHistoryDialog.CONSULTATION_HISTORY_DIALOG)
     }
 
-    override fun navigateToChatScreen(consultationVO: ConsultationVO) {
-        startActivity(ChatActivity.newIntent(this))
+    override fun navigateToChatScreen(consultationId: String) {
+        startActivity(ChatActivity.newIntent(mDoctorId, consultationId, this))
     }
 
 

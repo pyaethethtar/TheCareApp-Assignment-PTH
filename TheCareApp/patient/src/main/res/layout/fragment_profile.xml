@@ -1,6 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:paddingTop="@dimen/margin_medium_3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnBackToMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_arrow_black_24"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginBottom="@dimen/margin_medium_2"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btnEditProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit_24"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginBottom="@dimen/margin_medium_2"
+                android:layout_alignParentEnd="true"
+                />
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:title="@string/bottom_navi_profile"
+                style="@style/text_title"
+                android:layout_toEndOf="@id/btnEditProfile"/>
+
+        </RelativeLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/margin_medium_2"
+        android:paddingEnd="@dimen/margin_medium_2"
+        android:paddingTop="@dimen/margin_xlarge"
+        android:paddingBottom="@dimen/margin_medium_3"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPatient"
+            android:layout_width="@dimen/width_cardview_recent_doctor"
+            android:layout_height="@dimen/width_cardview_recent_doctor"
+            android:src="@drawable/photo_1438761681033_6461_ffad_8_d_80"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPatientName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Myat Yadanar"
+            android:textSize="@dimen/text_regular_3x"
+            android:textColor="@color/sending_time_color"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_alignStart="@id/tvPatientPhone"
+            android:layout_above="@id/tvPatientPhone"
+            android:layout_marginBottom="@dimen/margin_medium"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPatientPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="09237500130"
+            style="@style/text_regular_gray"
+            android:layout_toEndOf="@id/ivPatient"
+            android:layout_alignBottom="@id/ivPatient"
+            android:layout_marginStart="@dimen/margin_medium_2"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblDob"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_dob"
+            style="@style/text_regular_gray"
+            android:layout_below="@id/ivPatient"
+            android:layout_marginTop="@dimen/margin_xlarge"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblFullColum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_full_column"
+            style="@style/text_regular_gray"
+            android:layout_toEndOf="@id/lblDob"
+            android:layout_alignTop="@id/lblDob"
+            android:layout_marginStart="@dimen/margin_medium"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="30 Dec 1980"
+            style="@style/text_regular_black"
+            android:layout_toEndOf="@id/lblFullColum"
+            android:layout_alignTop="@id/lblDob"
+            android:paddingStart="@dimen/margin_medium_2"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblBloodType"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_blood_type"
+            style="@style/text_regular_gray"
+            android:layout_below="@id/lblDob"
+            android:layout_marginTop="@dimen/margin_medium"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblFullColum2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_full_column"
+            style="@style/text_regular_gray"
+            android:layout_toEndOf="@id/lblBloodType"
+            android:layout_alignTop="@id/lblBloodType"
+            android:layout_marginStart="@dimen/margin_medium"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBloodType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="O"
+            style="@style/text_regular_black"
+            android:layout_toEndOf="@id/lblFullColum2"
+            android:layout_alignTop="@id/lblBloodType"
+            android:paddingStart="@dimen/margin_medium_2"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblHeight"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_height"
+            style="@style/text_regular_gray"
+            android:layout_below="@id/lblBloodType"
+            android:layout_marginTop="@dimen/margin_medium"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblFullColum3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_full_column"
+            style="@style/text_regular_gray"
+            android:layout_toEndOf="@id/lblHeight"
+            android:layout_alignTop="@id/lblHeight"
+            android:layout_marginStart="@dimen/margin_medium"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5.2 ft"
+            style="@style/text_regular_black"
+            android:layout_toEndOf="@id/lblFullColum3"
+            android:layout_alignTop="@id/lblHeight"
+            android:paddingStart="@dimen/margin_medium_2"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblAllergicMedicine"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_allergic_medicine"
+            style="@style/text_regular_gray"
+            android:layout_below="@id/lblHeight"
+            android:layout_marginTop="@dimen/margin_medium"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblFullColum4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_full_column"
+            style="@style/text_regular_gray"
+            android:layout_toEndOf="@id/lblAllergicMedicine"
+            android:layout_alignTop="@id/lblAllergicMedicine"
+            android:layout_marginStart="@dimen/margin_medium"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAllergicMedicine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paracetamol"
+            style="@style/text_regular_black"
+            android:layout_toEndOf="@id/lblFullColum4"
+            android:layout_alignTop="@id/lblAllergicMedicine"
+            android:paddingStart="@dimen/margin_medium_2"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblAddress"
+            android:layout_width="@dimen/width_spinner"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_address"
+            style="@style/text_regular_gray"
+            android:layout_below="@id/lblAllergicMedicine"
+            android:layout_marginTop="@dimen/margin_medium"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/lblFullColum5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_full_column"
+            style="@style/text_regular_gray"
+            android:layout_toEndOf="@id/lblAddress"
+            android:layout_alignTop="@id/lblAddress"
+            android:layout_marginStart="@dimen/margin_medium"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_address"
+            style="@style/text_regular_black"
+            android:lineSpacingMultiplier="1"
+            android:layout_below="@id/lblAddress"
+            android:layout_marginTop="@dimen/margin_medium"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnSignOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_sign_out"
+            style="@style/text_regular_black"
+            android:textSize="@dimen/text_small"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btnChangePw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_change_pw"
+            style="@style/text_regular_black"
+            android:textSize="@dimen/text_small"
+            android:textStyle="bold"
+            android:layout_alignTop="@id/btnSignOut"
+            android:layout_alignParentEnd="true"/>
+
+
+    </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

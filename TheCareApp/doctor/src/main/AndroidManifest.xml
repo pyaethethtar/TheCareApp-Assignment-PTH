@@ -12,14 +12,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.NoteActivity"></activity>
-        <activity android:name=".activities.ProfileActivity" />
+        <activity android:name=".activities.QuestionsActivity"
+            android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar"></activity>
+        <activity android:name=".activities.PrescriptionActivity"
+            android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar">
+        </activity>
+        <activity android:name=".activities.CaseSummaryActivity"
+            android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" >
+        </activity>
+        <activity android:name=".activities.NoteActivity"
+            android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar">
+        </activity>
+        <activity android:name=".activities.ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar">
+
+        </activity>
         <activity
             android:name=".activities.DoctorInfoActivity"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
         <activity
             android:name=".activities.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
+
         <activity
             android:name=".activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar">
@@ -29,8 +43,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ChatActivity" />
-        <activity android:name=".activities.PatientInfoActivity" />
+
+        <activity android:name=".activities.ChatActivity"
+            android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar"/>
         <activity
             android:name=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />

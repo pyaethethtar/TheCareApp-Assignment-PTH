@@ -15,8 +15,8 @@ class LoginPresenterImpl : LoginPresenter, AbstractBasePresenter<LoginView>() {
     private val mAuthModel : AuthenticationModel = AuthenticationModelImpl
 
     override fun onTapLogin(phone: String, password: String) {
-        mAuthModel.login(phone, password, onSuccess = {
-            mView?.navigateToMainScreen(it)
+        mAuthModel.login(phone, password, onSuccess = {id->
+            mView?.navigateToMainScreen(id)
         }, onFailure = {
             mView?.showErrorMessage(it)
         })

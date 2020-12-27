@@ -16,7 +16,8 @@ class MainPresenterImpl : MainPresenter , AbstractBasePresenter<MainView>(){
     private val mCareModel : TheCareModel = TheCareModelImpl
 
     override fun onUiReady(patientId: String, lifecycleOwner: LifecycleOwner) {
-        mCareModel.getDataFromApiAndSaveToPatientDB(patientId, onSuccess = {}, onFailure = {})
+
+        mCareModel.mPatientId = patientId
         mView?.navigateToHomeScreen()
 
     }

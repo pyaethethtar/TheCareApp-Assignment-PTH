@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="textColor">#0F4D64</color>
+    <color name="textColor">#004247</color>
     <color name="textLightColor">#15869E</color>
     <color name="textcolorPrimary">#0a0a0a</color>
     <color name="textcolorSecondary">#252525</color>
     <color name="textcolorTertary">#979797</color>
     <color name="textGray">#8b8a8a</color>
+    <color name="textDarkGray">#424656</color>
 
     <color name="primaryDarkColor">#005CCC</color>
     <color name="primaryColor">#5290D9</color>
@@ -27,4 +28,7 @@
     <color name="text_button">#032ff2</color>
     <color name="facebook_button">#1b76f4</color>
     <color name="bg_text_input">#f3f3f3</color>
+    <color name="bg_color">#f6f6f6</color>
+    <color name="view_color">#e3e3e3</color>
+    <color name="sending_time_color">#424656</color>
 </resources>

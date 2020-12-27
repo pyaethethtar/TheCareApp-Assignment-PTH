@@ -23,7 +23,7 @@ data class CheckoutVO (
 
     @Embedded
     @get:PropertyName("delivery_info") @set:PropertyName("delivery_info")
-    var deliveryInfo : DeliveryVO = DeliveryVO(),
+    var deliveryInfo : DeliveryVO ?= DeliveryVO(),
 
     var prescriptions : ArrayList<MedicationVO> ?= arrayListOf(),
 
